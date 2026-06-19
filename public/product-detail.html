@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Product Details | The North Face">
+    <title>Product Details | The North Face</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <i class="fas fa-mountain"></i>
+                    <span>The North Face</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            
+            <div class="nav-icons">
+                <button class="nav-icon-btn search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="nav-icon-btn" id="userBtn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <a href="cart.html" class="nav-icon-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <a href="products.html">Products</a>
+            <span>/</span>
+            <span id="breadcrumbProduct">Product</span>
+        </div>
+    </div>
+
+    <!-- Product Detail Container -->
+    <div class="container product-detail-container">
+        <div class="product-detail">
+            <!-- Product Images -->
+            <div class="product-images">
+                <div class="main-image">
+                    <img id="mainImage" src="assets/product-placeholder.jpg" alt="Product Image">
+                </div>
+                <div class="thumbnail-images" id="thumbnailImages">
+                    <!-- Thumbnails will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info">
+                <h1 id="productTitle">Product Title</h1>
+                
+                <div class="product-rating">
+                    <div class="stars" id="productRating">
+                        <!-- Stars will be loaded here -->
+                    </div>
+                    <span class="rating-count" id="ratingCount">(0 reviews)</span>
+                </div>
+
+                <div class="product-price">
+                    <span class="price" id="productPrice">$0.00</span>
+                    <span class="original-price" id="originalPrice"></span>
+                    <span class="discount" id="discount"></span>
+                </div>
+
+                <p class="product-description" id="productDescription">
+                    <!-- Description will be loaded here -->
+                </p>
+
+                <!-- Product Features -->
+                <div class="product-features" id="productFeatures">
+                    <!-- Features will be loaded here -->
+                </div>
+
+                <!-- Size Selection -->
+                <div class="size-selector">
+                    <label for="sizeSelect">Size:</label>
+                    <select id="sizeSelect" required>
+                        <option value="">Select a size</option>
+                    </select>
+                </div>
+
+                <!-- Color Selection -->
+                <div class="color-selector">
+                    <label>Color:</label>
+                    <div class="color-options" id="colorOptions">
+                        <!-- Color options will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Quantity Selection -->
+                <div class="quantity-selector">
+                    <label for="quantityInput">Quantity:</label>
+                    <div class="quantity-control">
+                        <button class="qty-btn" id="decreaseQty">-</button>
+                        <input type="number" id="quantityInput" value="1" min="1" max="10">
+                        <button class="qty-btn" id="increaseQty">+</button>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="product-actions">
+                    <button class="btn btn-primary" id="addToCartBtn">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                    <button class="btn btn-outline" id="wishlistBtn">
+                        <i class="far fa-heart"></i> Add to Wishlist
+                    </button>
+                </div>
+
+                <!-- Shipping Info -->
+                <div class="shipping-info">
+                    <div class="info-item">
+                        <i class="fas fa-truck"></i>
+                        <div>
+                            <h4>Free Shipping</h4>
+                            <p>On orders over $100</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-undo"></i>
+                        <div>
+                            <h4>Easy Returns</h4>
+                            <p>30-day return policy</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <h4>Secure Payment</h4>
+                            <p>Encrypted transactions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stock Status -->
+                <div class="stock-status" id="stockStatus">
+                    <!-- Stock status will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Tabs -->
+        <div class="product-tabs">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="description">
+                    Description
+                </button>
+                <button class="tab-btn" data-tab="specifications">
+                    Specifications
+                </button>
+                <button class="tab-btn" data-tab="reviews">
+                    Reviews
+                </button>
+                <button class="tab-btn" data-tab="shipping">
+                    Shipping & Returns
+                </button>
+            </div>
+
+            <!-- Description Tab -->
+            <div class="tab-content active" id="description">
+                <div id="descriptionContent">
+                    <!-- Content will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Specifications Tab -->
+            <div class="tab-content" id="specifications">
+                <table class="specs-table" id="specificationsTable">
+                    <!-- Specifications will be loaded here -->
+                </table>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div class="tab-content" id="reviews">
+                <div class="reviews-section">
+                    <div class="reviews-summary" id="reviewsSummary">
+                        <!-- Review summary will be loaded here -->
+                    </div>
+                    <div class="reviews-list" id="reviewsList">
+                        <!-- Individual reviews will be loaded here -->
+                    </div>
+                    <div class="add-review">
+                        <h3>Write a Review</h3>
+                        <form id="reviewForm">
+                            <div class="form-group">
+                                <label for="reviewName">Name:</label>
+                                <input type="text" id="reviewName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reviewEmail">Email:</label>
+                                <input type="email" id="reviewEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reviewRating">Rating:</label>
+                                <select id="reviewRating" required>
+                                    <option value="">Select rating</option>
+                                    <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                                    <option value="4">⭐⭐⭐⭐ Good</option>
+                                    <option value="3">⭐⭐⭐ Average</option>
+                                    <option value="2">⭐⭐ Poor</option>
+                                    <option value="1">⭐ Terrible</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="reviewTitle">Review Title:</label>
+                                <input type="text" id="reviewTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reviewText">Review:</label>
+                                <textarea id="reviewText" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Review</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping & Returns Tab -->
+            <div class="tab-content" id="shipping">
+                <div class="shipping-content">
+                    <h3>Shipping Information</h3>
+                    <p>We offer free shipping on all orders over $100. Standard shipping takes 5-7 business days.</p>
+                    <h3>Return Policy</h3>
+                    <p>We offer a 30-day return policy for all products in original condition with tags attached.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <section class="related-products">
+            <h2>Related Products</h2>
+            <div class="products-grid" id="relatedProducts">
+                <!-- Related products will be loaded here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The North Face. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The North Face - Premium outdoor clothing and equipment">
+    <meta name="keywords" content="outdoor, clothing, hiking, camping, winter sports">
+    <title>The North Face | Premium Outdoor Gear</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <i class="fas fa-mountain"></i>
+                    <span>The North Face</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            
+            <div class="nav-icons">
+                <button class="nav-icon-btn search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="nav-icon-btn" id="userBtn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <a href="cart.html" class="nav-icon-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Bar (hidden by default) -->
+    <div class="search-bar" id="searchBar">
+        <div class="search-container">
+            <input type="text" placeholder="Search for products..." id="searchInput">
+            <button type="submit" id="searchSubmit">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="close-search" id="closeSearch">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Explore the Outdoors</h1>
+            <p class="hero-subtitle">Premium gear for your next adventure</p>
+            <button class="btn btn-primary" onclick="window.location.href='products.html'">
+                Shop Now
+            </button>
+        </div>
+        <video autoplay muted loop class="hero-video">
+            <source src="assets/hero-video.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <div class="products-grid" id="featuredProducts">
+                <!-- Products will be loaded here via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="assets/category-jackets.jpg" alt="Jackets">
+                    <h3>Jackets</h3>
+                    <a href="products.html?category=jackets">View All</a>
+                </div>
+                <div class="category-card">
+                    <img src="assets/category-backpacks.jpg" alt="Backpacks">
+                    <h3>Backpacks</h3>
+                    <a href="products.html?category=backpacks">View All</a>
+                </div>
+                <div class="category-card">
+                    <img src="assets/category-footwear.jpg" alt="Footwear">
+                    <h3>Footwear</h3>
+                    <a href="products.html?category=footwear">View All</a>
+                </div>
+                <div class="category-card">
+                    <img src="assets/category-accessories.jpg" alt="Accessories">
+                    <h3>Accessories</h3>
+                    <a href="products.html?category=accessories">View All</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotions Section -->
+    <section class="promotions">
+        <div class="container">
+            <div class="promo-banner">
+                <div class="promo-content">
+                    <h2>Summer Sale</h2>
+                    <p>Up to 50% off on selected items</p>
+                    <button class="btn btn-light">Shop Sale</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get exclusive deals and new product updates</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The North Face. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- User Menu Modal -->
+    <div class="modal" id="userModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>User Account</h2>
+            <div id="userContent">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>
