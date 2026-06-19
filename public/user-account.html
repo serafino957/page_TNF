@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My Account | The North Face">
+    <title>My Account | The North Face</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <i class="fas fa-mountain"></i>
+                    <span>The North Face</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            
+            <div class="nav-icons">
+                <button class="nav-icon-btn search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="nav-icon-btn" id="userBtn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <a href="cart.html" class="nav-icon-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Account Container -->
+    <div class="container account-container">
+        <div class="account-content">
+            <!-- Sidebar Navigation -->
+            <aside class="account-sidebar">
+                <div class="account-user" id="accountUser">
+                    <!-- User info will be loaded here -->
+                </div>
+                <nav class="account-nav">
+                    <a href="#" class="account-nav-link active" data-section="dashboard">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a>
+                    <a href="#" class="account-nav-link" data-section="orders">
+                        <i class="fas fa-box"></i> Orders
+                    </a>
+                    <a href="#" class="account-nav-link" data-section="addresses">
+                        <i class="fas fa-map-marker-alt"></i> Addresses
+                    </a>
+                    <a href="#" class="account-nav-link" data-section="wishlist">
+                        <i class="fas fa-heart"></i> Wishlist
+                    </a>
+                    <a href="#" class="account-nav-link" data-section="profile">
+                        <i class="fas fa-user-circle"></i> Profile
+                    </a>
+                    <a href="#" class="account-nav-link" data-section="settings">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                    <a href="#" class="account-nav-link" id="logoutLink">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="account-main">
+                <!-- Dashboard Section -->
+                <section id="dashboardSection" class="account-section active">
+                    <h1>Dashboard</h1>
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <i class="fas fa-box"></i>
+                            <h3>Total Orders</h3>
+                            <p id="totalOrders">0</p>
+                        </div>
+                        <div class="dashboard-card">
+                            <i class="fas fa-heart"></i>
+                            <h3>Wishlist Items</h3>
+                            <p id="wishlistCount">0</p>
+                        </div>
+                        <div class="dashboard-card">
+                            <i class="fas fa-dollar-sign"></i>
+                            <h3>Total Spent</h3>
+                            <p id="totalSpent">$0.00</p>
+                        </div>
+                        <div class="dashboard-card">
+                            <i class="fas fa-tag"></i>
+                            <h3>Available Points</h3>
+                            <p id="rewardPoints">0</p>
+                        </div>
+                    </div>
+
+                    <div class="recent-orders">
+                        <h2>Recent Orders</h2>
+                        <div id="recentOrdersList"></div>
+                    </div>
+                </section>
+
+                <!-- Orders Section -->
+                <section id="ordersSection" class="account-section">
+                    <h1>My Orders</h1>
+                    <div class="orders-filter">
+                        <select id="orderFilter">
+                            <option value="all">All Orders</option>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                    <div id="ordersList"></div>
+                </section>
+
+                <!-- Addresses Section -->
+                <section id="addressesSection" class="account-section">
+                    <h1>My Addresses</h1>
+                    <button class="btn btn-primary" id="addAddressBtn">
+                        <i class="fas fa-plus"></i> Add New Address
+                    </button>
+                    <div id="addressesList"></div>
+
+                    <!-- Add/Edit Address Form -->
+                    <div id="addressForm" class="address-form" style="display: none;">
+                        <h2>Address Details</h2>
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="addrFirstName">First Name *</label>
+                                    <input type="text" id="addrFirstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addrLastName">Last Name *</label>
+                                    <input type="text" id="addrLastName" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="addrStreet">Street Address *</label>
+                                <input type="text" id="addrStreet" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="addrCity">City *</label>
+                                    <input type="text" id="addrCity" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addrState">State/Province *</label>
+                                    <input type="text" id="addrState" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="addrZip">ZIP/Postal Code *</label>
+                                    <input type="text" id="addrZip" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addrCountry">Country *</label>
+                                    <select id="addrCountry" required>
+                                        <option value="">Select Country</option>
+                                        <option value="US">United States</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="GB">United Kingdom</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <label class="checkbox">
+                                <input type="checkbox" id="defaultAddress">
+                                <span>Set as default address</span>
+                            </label>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" id="cancelAddressBtn">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save Address</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Wishlist Section -->
+                <section id="wishlistSection" class="account-section">
+                    <h1>My Wishlist</h1>
+                    <div class="wishlist-grid" id="wishlistGrid">
+                        <!-- Wishlist items will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Profile Section -->
+                <section id="profileSection" class="account-section">
+                    <h1>Profile Information</h1>
+                    <form id="profileForm" class="profile-form">
+                        <div class="form-group">
+                            <label for="profileFirstName">First Name *</label>
+                            <input type="text" id="profileFirstName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profileLastName">Last Name *</label>
+                            <input type="text" id="profileLastName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profileEmail">Email *</label>
+                            <input type="email" id="profileEmail" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profilePhone">Phone *</label>
+                            <input type="tel" id="profilePhone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profileDOB">Date of Birth</label>
+                            <input type="date" id="profileDOB">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profileGender">Gender</label>
+                            <select id="profileGender">
+                                <option value="">Select</option>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                                <option value="O">Other</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settingsSection" class="account-section">
+                    <h1>Settings</h1>
+                    
+                    <div class="settings-group">
+                        <h2>Notifications</h2>
+                        <label class="checkbox">
+                            <input type="checkbox" id="emailNotif" checked>
+                            <span>Email notifications</span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" id="smsNotif">
+                            <span>SMS notifications</span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" id="newsNotif" checked>
+                            <span>Newsletter</span>
+                        </label>
+                    </div>
+
+                    <div class="settings-group">
+                        <h2>Privacy</h2>
+                        <label class="checkbox">
+                            <input type="checkbox" id="publicProfile">
+                            <span>Make profile public</span>
+                        </label>
+                    </div>
+
+                    <div class="settings-group">
+                        <h2>Security</h2>
+                        <button class="btn btn-secondary" id="changePasswordBtn">Change Password</button>
+                        <button class="btn btn-secondary" id="twoFactorBtn">Enable Two-Factor Authentication</button>
+                    </div>
+
+                    <div class="settings-group">
+                        <h2>Danger Zone</h2>
+                        <button class="btn btn-danger" id="deleteAccountBtn">Delete Account</button>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The North Face. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>
