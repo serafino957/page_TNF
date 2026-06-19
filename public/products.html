@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop The North Face - Premium outdoor clothing and equipment">
+    <title>Shop | The North Face</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <i class="fas fa-mountain"></i>
+                    <span>The North Face</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link active">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            
+            <div class="nav-icons">
+                <button class="nav-icon-btn search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="nav-icon-btn" id="userBtn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <a href="cart.html" class="nav-icon-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-bar" id="searchBar">
+        <div class="search-container">
+            <input type="text" placeholder="Search for products..." id="searchInput">
+            <button type="submit" id="searchSubmit">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="close-search" id="closeSearch">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container products-container">
+        <!-- Sidebar Filters -->
+        <aside class="sidebar">
+            <div class="filter-section">
+                <h3>Filters</h3>
+                
+                <!-- Category Filter -->
+                <div class="filter-group">
+                    <h4>Category</h4>
+                    <div class="filter-options">
+                        <label>
+                            <input type="checkbox" class="category-filter" value="jackets"> Jackets
+                        </label>
+                        <label>
+                            <input type="checkbox" class="category-filter" value="backpacks"> Backpacks
+                        </label>
+                        <label>
+                            <input type="checkbox" class="category-filter" value="footwear"> Footwear
+                        </label>
+                        <label>
+                            <input type="checkbox" class="category-filter" value="accessories"> Accessories
+                        </label>
+                        <label>
+                            <input type="checkbox" class="category-filter" value="tents"> Tents
+                        </label>
+                        <label>
+                            <input type="checkbox" class="category-filter" value="sleeping-bags"> Sleeping Bags
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Price Filter -->
+                <div class="filter-group">
+                    <h4>Price Range</h4>
+                    <div class="price-filter">
+                        <input type="range" id="priceMin" min="0" max="500" value="0">
+                        <input type="range" id="priceMax" min="0" max="500" value="500">
+                        <div class="price-display">
+                            $<span id="minPrice">0</span> - $<span id="maxPrice">500</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Size Filter -->
+                <div class="filter-group">
+                    <h4>Size</h4>
+                    <div class="filter-options">
+                        <label>
+                            <input type="checkbox" class="size-filter" value="XS"> XS
+                        </label>
+                        <label>
+                            <input type="checkbox" class="size-filter" value="S"> S
+                        </label>
+                        <label>
+                            <input type="checkbox" class="size-filter" value="M"> M
+                        </label>
+                        <label>
+                            <input type="checkbox" class="size-filter" value="L"> L
+                        </label>
+                        <label>
+                            <input type="checkbox" class="size-filter" value="XL"> XL
+                        </label>
+                        <label>
+                            <input type="checkbox" class="size-filter" value="XXL"> XXL
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Color Filter -->
+                <div class="filter-group">
+                    <h4>Color</h4>
+                    <div class="color-filter">
+                        <label style="background-color: #000000;"></label>
+                        <label style="background-color: #FFFFFF; border: 1px solid #ccc;"></label>
+                        <label style="background-color: #FF6B35;"></label>
+                        <label style="background-color: #004E89;"></label>
+                        <label style="background-color: #1B4965;"></label>
+                        <label style="background-color: #9A8C98;"></label>
+                    </div>
+                </div>
+
+                <!-- Rating Filter -->
+                <div class="filter-group">
+                    <h4>Rating</h4>
+                    <div class="filter-options">
+                        <label>
+                            <input type="radio" name="rating" value="5"> ⭐⭐⭐⭐⭐ 5 Stars
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" value="4"> ⭐⭐⭐⭐ 4+ Stars
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" value="3"> ⭐⭐⭐ 3+ Stars
+                        </label>
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary" id="clearFilters">Clear Filters</button>
+            </div>
+        </aside>
+
+        <!-- Products Section -->
+        <main class="products-main">
+            <!-- Top Bar -->
+            <div class="products-top">
+                <div class="results-count">
+                    <p>Showing <span id="resultsCount">0</span> products</p>
+                </div>
+                <div class="sort-by">
+                    <label for="sortSelect">Sort by:</label>
+                    <select id="sortSelect">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest</option>
+                        <option value="rating">Top Rated</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here via JavaScript -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Pagination buttons will be generated here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The North Face. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>
