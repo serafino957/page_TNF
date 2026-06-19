@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Team member 1">
+  <rect width="600" height="600" fill="#0f172a"/>
+  <circle cx="300" cy="220" r="110" fill="#f4c27b"/>
+  <rect x="160" y="340" width="280" height="190" rx="80" fill="#1d4ed8"/>
+  <text x="300" y="570" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#e2e8f0">John Smith</text>
+</svg>

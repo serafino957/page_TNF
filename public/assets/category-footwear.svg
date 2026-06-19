@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Footwear category">
+  <rect width="1200" height="800" fill="#1f2937"/>
+  <circle cx="980" cy="700" r="220" fill="#10b981" opacity="0.2"/>
+  <path d="M300 520c120 0 180-120 290-120h220c90 0 150 40 190 120v80H300z" fill="#34d399"/>
+  <path d="M460 430h300" stroke="#064e3b" stroke-width="18"/>
+  <text x="60" y="730" font-family="Arial, sans-serif" font-size="72" fill="#ecfdf5">Footwear</text>
+</svg>

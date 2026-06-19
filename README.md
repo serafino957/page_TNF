@@ -33,5 +33,5 @@ This repository now includes a deploy workflow at `.github/workflows/deploy-page
 
 ## Current limitations
 
-- Backend server files referenced in `package.json` are missing (`server/server.js`), so `npm start` does not run.
-- Some static files referenced by HTML are not present yet (for example `public/js/*` and `public/assets/*`).
+- This is a static frontend project. No real backend API, authentication, or payment processing is connected.
+- Data is demo-only in browser storage (localStorage), so cart/account content is not persisted across devices.

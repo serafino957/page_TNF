@@ -1,12 +1,12 @@
 {
   "name": "the-north-face-ecommerce",
   "version": "1.0.0",
-  "description": "The North Face E-Commerce Website",
-  "main": "server/server.js",
+  "description": "Static storefront for The North Face style e-commerce pages",
+  "main": "public/index.html",
   "scripts": {
-    "start": "node server/server.js",
-    "dev": "nodemon server/server.js",
-    "test": "jest"
+    "start": "python3 -m http.server 5500 --directory public",
+    "dev": "python3 -m http.server 5500 --directory public",
+    "test": "echo \"No tests configured\""
   },
   "keywords": [
     "ecommerce",

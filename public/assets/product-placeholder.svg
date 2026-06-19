@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Product placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="600" cy="360" r="170" fill="#ff6b35" opacity="0.25"/>
+  <rect x="420" y="200" width="360" height="320" rx="24" fill="#f8fafc" opacity="0.9"/>
+  <rect x="470" y="540" width="260" height="40" rx="20" fill="#e2e8f0"/>
+  <text x="600" y="650" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" fill="#f8fafc">The North Face</text>
+</svg>

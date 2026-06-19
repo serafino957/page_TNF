@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Team member 3">
+  <rect width="600" height="600" fill="#111827"/>
+  <circle cx="300" cy="220" r="110" fill="#e8b58a"/>
+  <rect x="160" y="340" width="280" height="190" rx="80" fill="#0f766e"/>
+  <text x="300" y="570" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#ecfeff">Michael Chen</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Backpacks category">
+  <rect width="1200" height="800" fill="#0b3b5e"/>
+  <circle cx="250" cy="120" r="180" fill="#22d3ee" opacity="0.2"/>
+  <rect x="440" y="180" width="320" height="420" rx="80" fill="#06b6d4"/>
+  <rect x="500" y="110" width="200" height="120" rx="60" fill="#0891b2"/>
+  <rect x="520" y="330" width="160" height="140" rx="20" fill="#164e63"/>
+  <text x="60" y="730" font-family="Arial, sans-serif" font-size="72" fill="#ecfeff">Backpacks</text>
+</svg>

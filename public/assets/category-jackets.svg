@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Jackets category">
+  <rect width="1200" height="800" fill="#0f172a"/>
+  <circle cx="900" cy="120" r="180" fill="#ff6b35" opacity="0.2"/>
+  <path d="M470 230l130-70 130 70v350H470z" fill="#f97316"/>
+  <path d="M560 170h80v410h-80z" fill="#1e293b"/>
+  <text x="60" y="730" font-family="Arial, sans-serif" font-size="72" fill="#f8fafc">Jackets</text>
+</svg>
