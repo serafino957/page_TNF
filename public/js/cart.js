@@ -8,6 +8,10 @@
         { id: "boots-ridge", name: "Ridge Hiker Boots", category: "footwear", price: 169.0, rating: 4, image: "assets/category-footwear.svg", sizes: ["8", "9", "10", "11"], colors: ["#4B5563", "#111827"] },
         { id: "gloves-summit", name: "Summit Thermal Gloves", category: "accessories", price: 49.0, rating: 4, image: "assets/category-accessories.svg", sizes: ["S", "M", "L"], colors: ["#111827", "#EF4444"] }
     ];
+    var productsListState = {
+        page: 1,
+        pageSize: 4
+    };
 
     function $(id) {
         return document.getElementById(id);
@@ -130,6 +134,7 @@
     function renderProductsPage() {
         var grid = $("productsGrid");
         if (!grid) return;
+        var pagination = $("pagination");
 
         var params = new URLSearchParams(window.location.search);
         var category = params.get("category") || "";
@@ -173,7 +178,10 @@
             if (sortSelect.value === "price-high") filtered.sort(function (a, b) { return b.price - a.price; });
             if (sortSelect.value === "rating") filtered.sort(function (a, b) { return b.rating - a.rating; });
             if (!sortSelect.dataset.bound) {
-                sortSelect.addEventListener("change", renderProductsPage);
+                sortSelect.addEventListener("change", function () {
+                    productsListState.page = 1;
+                    renderProductsPage();
+                });
                 sortSelect.dataset.bound = "1";
             }
         }
@@ -189,18 +197,51 @@
             if (minPrice) minPrice.textContent = String(min);
             if (maxPrice) maxPrice.textContent = String(max);
             if (!minRange.dataset.bound) {
-                minRange.addEventListener("input", renderProductsPage);
+                minRange.addEventListener("input", function () {
+                    productsListState.page = 1;
+                    renderProductsPage();
+                });
                 minRange.dataset.bound = "1";
             }
             if (!maxRange.dataset.bound) {
-                maxRange.addEventListener("input", renderProductsPage);
+                maxRange.addEventListener("input", function () {
+                    productsListState.page = 1;
+                    renderProductsPage();
+                });
                 maxRange.dataset.bound = "1";
             }
         }
 
-        grid.innerHTML = filtered.map(buildProductCard).join("");
+        var totalPages = Math.max(1, Math.ceil(filtered.length / productsListState.pageSize));
+        if (productsListState.page > totalPages) {
+            productsListState.page = totalPages;
+        }
+        var start = (productsListState.page - 1) * productsListState.pageSize;
+        var pageItems = filtered.slice(start, start + productsListState.pageSize);
+
+        grid.innerHTML = pageItems.map(buildProductCard).join("");
         var count = $("resultsCount");
         if (count) count.textContent = String(filtered.length);
+
+        if (pagination) {
+            pagination.innerHTML = "";
+            if (totalPages > 1) {
+                for (var page = 1; page <= totalPages; page += 1) {
+                    var button = document.createElement("button");
+                    button.className = "btn " + (page === productsListState.page ? "btn-primary" : "btn-outline");
+                    button.textContent = String(page);
+                    button.style.marginRight = "8px";
+                    button.style.padding = "8px 14px";
+                    button.addEventListener("click", (function (targetPage) {
+                        return function () {
+                            productsListState.page = targetPage;
+                            renderProductsPage();
+                        };
+                    })(page));
+                    pagination.appendChild(button);
+                }
+            }
+        }
 
         var clearFilters = $("clearFilters");
         if (clearFilters && !clearFilters.dataset.bound) {
@@ -208,6 +249,7 @@
                 if (minRange) minRange.value = "0";
                 if (maxRange) maxRange.value = "500";
                 if (sortSelect) sortSelect.value = "featured";
+                productsListState.page = 1;
                 categoryFilters.forEach(function (checkbox) { checkbox.checked = false; });
                 sizeFilters.forEach(function (checkbox) { checkbox.checked = false; });
                 ratingFilters.forEach(function (radio) { radio.checked = false; });
@@ -224,21 +266,30 @@
 
         categoryFilters.forEach(function (checkbox) {
             if (!checkbox.dataset.bound) {
-                checkbox.addEventListener("change", renderProductsPage);
+                checkbox.addEventListener("change", function () {
+                    productsListState.page = 1;
+                    renderProductsPage();
+                });
                 checkbox.dataset.bound = "1";
             }
         });
 
         sizeFilters.forEach(function (checkbox) {
             if (!checkbox.dataset.bound) {
-                checkbox.addEventListener("change", renderProductsPage);
+                checkbox.addEventListener("change", function () {
+                    productsListState.page = 1;
+                    renderProductsPage();
+                });
                 checkbox.dataset.bound = "1";
             }
         });
 
         ratingFilters.forEach(function (radio) {
             if (!radio.dataset.bound) {
-                radio.addEventListener("change", renderProductsPage);
+                radio.addEventListener("change", function () {
+                    productsListState.page = 1;
+                    renderProductsPage();
+                });
                 radio.dataset.bound = "1";
             }
         });
@@ -449,6 +500,63 @@
             }
         }
 
+        function fieldValue(id) {
+            return $(id) ? $(id).value.trim() : "";
+        }
+
+        function validateShippingStep() {
+            var requiredIds = ["firstName", "lastName", "email", "phone", "address", "city", "state", "zipCode", "country"];
+            for (var i = 0; i < requiredIds.length; i += 1) {
+                var id = requiredIds[i];
+                var node = $(id);
+                if (!node || !fieldValue(id)) {
+                    notify("Please complete all shipping fields.");
+                    if (node) node.focus();
+                    return false;
+                }
+            }
+
+            var email = fieldValue("email");
+            if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+                notify("Please enter a valid email.");
+                if ($("email")) $("email").focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        function validatePaymentStep() {
+            if (!fieldValue("cardName")) {
+                notify("Cardholder name is required.");
+                if ($("cardName")) $("cardName").focus();
+                return false;
+            }
+
+            var card = fieldValue("cardNumber").replace(/\s+/g, "");
+            if (!/^\d{13,19}$/.test(card)) {
+                notify("Please enter a valid card number.");
+                if ($("cardNumber")) $("cardNumber").focus();
+                return false;
+            }
+
+            var expiry = fieldValue("expiry");
+            if (!/^(0[1-9]|1[0-2])\/(\d{2})$/.test(expiry)) {
+                notify("Expiry must be in MM/YY format.");
+                if ($("expiry")) $("expiry").focus();
+                return false;
+            }
+
+            var cvv = fieldValue("cvv");
+            if (!/^\d{3,4}$/.test(cvv)) {
+                notify("Please enter a valid CVV.");
+                if ($("cvv")) $("cvv").focus();
+                return false;
+            }
+
+            return true;
+        }
+
         document.querySelectorAll("input[name='shippingMethod']").forEach(function (radio) {
             radio.addEventListener("change", function () {
                 shippingPrice = radio.value === "express" ? 25 : (radio.value === "overnight" ? 50 : 10);
@@ -456,11 +564,17 @@
             });
         });
 
-        if ($("nextPaymentBtn")) $("nextPaymentBtn").addEventListener("click", function () { setStep(2); });
+        if ($("nextPaymentBtn")) {
+            $("nextPaymentBtn").addEventListener("click", function () {
+                if (!validateShippingStep()) return;
+                setStep(2);
+            });
+        }
         if ($("backShippingBtn")) $("backShippingBtn").addEventListener("click", function () { setStep(1); });
 
         if ($("nextReviewBtn")) {
             $("nextReviewBtn").addEventListener("click", function () {
+                if (!validatePaymentStep()) return;
                 if ($("reviewShipping")) {
                     $("reviewShipping").innerHTML =
                         "<p>" + ($("firstName") ? $("firstName").value : "") + " " + ($("lastName") ? $("lastName").value : "") + "</p>" +
