@@ -1,5 +1,6 @@
 (function () {
     var CART_KEY = "tnf_cart";
+    var CHECKOUT_DRAFT_KEY = "tnf_checkout_draft";
     var PRODUCTS = [
         { id: "jacket-apex", name: "Apex Insulated Jacket", category: "jackets", price: 199.0, rating: 5, image: "assets/category-jackets.svg", sizes: ["S", "M", "L", "XL"], colors: ["#1B1B1B", "#004E89"] },
         { id: "shell-wind", name: "Windproof Shell", category: "jackets", price: 149.0, rating: 4, image: "assets/category-jackets.svg", sizes: ["S", "M", "L"], colors: ["#334155", "#0F172A"] },
@@ -477,6 +478,103 @@
         }
 
         var shippingPrice = 10;
+        var checkoutFields = [
+            "firstName", "lastName", "email", "phone", "address", "city", "state", "zipCode", "country",
+            "cardName", "cardNumber", "expiry", "cvv"
+        ];
+
+        function readDraft() {
+            if (window.TNF_API) return window.TNF_API.readJson(CHECKOUT_DRAFT_KEY, {});
+            try {
+                return JSON.parse(localStorage.getItem(CHECKOUT_DRAFT_KEY) || "{}");
+            } catch (error) {
+                return {};
+            }
+        }
+
+        function writeDraft(data) {
+            if (window.TNF_API) {
+                window.TNF_API.writeJson(CHECKOUT_DRAFT_KEY, data);
+            } else {
+                localStorage.setItem(CHECKOUT_DRAFT_KEY, JSON.stringify(data));
+            }
+        }
+
+        function clearDraft() {
+            localStorage.removeItem(CHECKOUT_DRAFT_KEY);
+        }
+
+        function markInvalid(node) {
+            if (!node) return;
+            node.style.borderColor = "#dc3545";
+            node.style.boxShadow = "0 0 0 3px rgba(220, 53, 69, 0.15)";
+        }
+
+        function clearInvalid(node) {
+            if (!node) return;
+            node.style.borderColor = "";
+            node.style.boxShadow = "";
+        }
+
+        function persistDraft() {
+            var draft = {};
+            checkoutFields.forEach(function (id) {
+                if ($(id)) draft[id] = $(id).value;
+            });
+            writeDraft(draft);
+        }
+
+        function hydrateDraft() {
+            var draft = readDraft();
+            checkoutFields.forEach(function (id) {
+                if ($(id) && typeof draft[id] === "string" && draft[id]) {
+                    $(id).value = draft[id];
+                }
+            });
+        }
+
+        function bindDraftInputs() {
+            checkoutFields.forEach(function (id) {
+                if (!$(id) || $(id).dataset.draftBound) return;
+                $(id).addEventListener("input", function () {
+                    clearInvalid($(id));
+                    persistDraft();
+                });
+                $(id).dataset.draftBound = "1";
+            });
+        }
+
+        function bindMasks() {
+            var cardInput = $("cardNumber");
+            if (cardInput && !cardInput.dataset.maskBound) {
+                cardInput.addEventListener("input", function () {
+                    var digits = cardInput.value.replace(/\D/g, "").slice(0, 19);
+                    cardInput.value = digits.replace(/(.{4})/g, "$1 ").trim();
+                });
+                cardInput.dataset.maskBound = "1";
+            }
+
+            var expiryInput = $("expiry");
+            if (expiryInput && !expiryInput.dataset.maskBound) {
+                expiryInput.addEventListener("input", function () {
+                    var digits = expiryInput.value.replace(/\D/g, "").slice(0, 4);
+                    if (digits.length >= 3) {
+                        expiryInput.value = digits.slice(0, 2) + "/" + digits.slice(2);
+                    } else {
+                        expiryInput.value = digits;
+                    }
+                });
+                expiryInput.dataset.maskBound = "1";
+            }
+
+            var cvvInput = $("cvv");
+            if (cvvInput && !cvvInput.dataset.maskBound) {
+                cvvInput.addEventListener("input", function () {
+                    cvvInput.value = cvvInput.value.replace(/\D/g, "").slice(0, 4);
+                });
+                cvvInput.dataset.maskBound = "1";
+            }
+        }
 
         function setStep(step) {
             ["shippingStep", "paymentStep", "reviewStep"].forEach(function (id, index) {
@@ -511,17 +609,21 @@
                 var node = $(id);
                 if (!node || !fieldValue(id)) {
                     notify("Please complete all shipping fields.");
+                    markInvalid(node);
                     if (node) node.focus();
                     return false;
                 }
+                clearInvalid(node);
             }
 
             var email = fieldValue("email");
             if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
                 notify("Please enter a valid email.");
+                markInvalid($("email"));
                 if ($("email")) $("email").focus();
                 return false;
             }
+            clearInvalid($("email"));
 
             return true;
         }
@@ -529,30 +631,38 @@
         function validatePaymentStep() {
             if (!fieldValue("cardName")) {
                 notify("Cardholder name is required.");
+                markInvalid($("cardName"));
                 if ($("cardName")) $("cardName").focus();
                 return false;
             }
+            clearInvalid($("cardName"));
 
             var card = fieldValue("cardNumber").replace(/\s+/g, "");
             if (!/^\d{13,19}$/.test(card)) {
                 notify("Please enter a valid card number.");
+                markInvalid($("cardNumber"));
                 if ($("cardNumber")) $("cardNumber").focus();
                 return false;
             }
+            clearInvalid($("cardNumber"));
 
             var expiry = fieldValue("expiry");
             if (!/^(0[1-9]|1[0-2])\/(\d{2})$/.test(expiry)) {
                 notify("Expiry must be in MM/YY format.");
+                markInvalid($("expiry"));
                 if ($("expiry")) $("expiry").focus();
                 return false;
             }
+            clearInvalid($("expiry"));
 
             var cvv = fieldValue("cvv");
             if (!/^\d{3,4}$/.test(cvv)) {
                 notify("Please enter a valid CVV.");
+                markInvalid($("cvv"));
                 if ($("cvv")) $("cvv").focus();
                 return false;
             }
+            clearInvalid($("cvv"));
 
             return true;
         }
@@ -598,10 +708,14 @@
         form.addEventListener("submit", function (event) {
             event.preventDefault();
             writeCart([]);
+            clearDraft();
             notify("Order placed successfully.");
             window.location.href = "index.html";
         });
 
+        hydrateDraft();
+        bindMasks();
+        bindDraftInputs();
         renderSummary();
     }
 
