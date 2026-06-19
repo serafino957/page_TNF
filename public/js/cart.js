@@ -145,11 +145,12 @@
         var sizeFilters = document.querySelectorAll(".size-filter");
         var ratingFilters = document.querySelectorAll("input[name='rating']");
 
-        // Sync UI with category query parameter when opening from category links.
-        if (category && categoryFilters.length) {
+        // Sync from URL only on first render to avoid overriding user filter changes.
+        if (category && categoryFilters.length && !grid.dataset.categorySynced) {
             categoryFilters.forEach(function (checkbox) {
                 checkbox.checked = checkbox.value === category;
             });
+            grid.dataset.categorySynced = "1";
         }
 
         var selectedCategories = Array.prototype.slice.call(categoryFilters)
