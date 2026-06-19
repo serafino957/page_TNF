@@ -4,7 +4,13 @@ Static storefront for The North Face style e-commerce pages.
 
 ## Local preview
 
-Run a static server from the `public` directory:
+Use npm script:
+
+```bash
+npm start
+```
+
+Or run a static server from the `public` directory:
 
 ```bash
 cd public
@@ -12,6 +18,11 @@ python3 -m http.server 5500
 ```
 
 Open `http://localhost:5500`.
+
+## Environment files
+
+- `.env` is not required for this static frontend.
+- If backend integration is added later, use `.env.example` as a template and keep real secrets only in local `.env`.
 
 ## Public link with GitHub Pages
 
