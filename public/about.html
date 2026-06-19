@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About The North Face | Premium Outdoor Gear">
+    <title>About Us | The North Face</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <i class="fas fa-mountain"></i>
+                    <span>The North Face</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link active">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            
+            <div class="nav-icons">
+                <button class="nav-icon-btn search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="nav-icon-btn" id="userBtn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <a href="cart.html" class="nav-icon-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1>About The North Face</h1>
+            <p>Equipping adventurers since 1966</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <div class="container about-container">
+        <!-- Our Story Section -->
+        <section class="about-section">
+            <div class="section-content">
+                <h2>Our Story</h2>
+                <p>The North Face was founded in 1966 in San Francisco as a small mountaineering retailer. What started as a passion for the outdoors has grown into a global leader in outdoor apparel, footwear, and equipment.</p>
+                <p>Our mission has always been simple: to equip adventurers with the gear they need to explore the world safely and comfortably. From climbers ascending the world's highest peaks to hikers exploring local trails, our products are designed for those who refuse to be confined by walls.</p>
+            </div>
+            <img src="assets/about-story.jpg" alt="The North Face History">
+        </section>
+
+        <!-- Values Section -->
+        <section class="about-section reverse">
+            <div class="section-content">
+                <h2>Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <i class="fas fa-mountain"></i>
+                        <h3>Adventure</h3>
+                        <p>We celebrate the spirit of exploration and adventure</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Sustainability</h3>
+                        <p>Protecting the environment for future generations</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Community</h3>
+                        <p>Building connections with adventurers worldwide</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-cog"></i>
+                        <h3>Innovation</h3>
+                        <p>Continuously improving our products and services</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <h2>Our Team</h2>
+            <p class="section-intro">Meet the passionate individuals behind The North Face</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="assets/team-member-1.jpg" alt="John Smith">
+                    <h3>John Smith</h3>
+                    <p class="position">Chief Executive Officer</p>
+                    <p class="bio">Leading The North Face with a vision for sustainable growth and innovation.</p>
+                </div>
+                <div class="team-member">
+                    <img src="assets/team-member-2.jpg" alt="Sarah Johnson">
+                    <h3>Sarah Johnson</h3>
+                    <p class="position">Chief Product Officer</p>
+                    <p class="bio">Driving product innovation and ensuring the highest quality standards.</p>
+                </div>
+                <div class="team-member">
+                    <img src="assets/team-member-3.jpg" alt="Michael Chen">
+                    <h3>Michael Chen</h3>
+                    <p class="position">VP of Sustainability</p>
+                    <p class="bio">Committed to making The North Face a leader in environmental responsibility.</p>
+                </div>
+                <div class="team-member">
+                    <img src="assets/team-member-4.jpg" alt="Emma Wilson">
+                    <h3>Emma Wilson</h3>
+                    <p class="position">VP of Marketing</p>
+                    <p class="bio">Connecting with adventurers and building our global community.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-section">
+            <h2>By The Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>58+</h3>
+                    <p>Years in Business</p>
+                </div>
+                <div class="stat-card">
+                    <h3>100+</h3>
+                    <p>Countries</p>
+                </div>
+                <div class="stat-card">
+                    <h3>5M+</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-card">
+                    <h3>500+</h3>
+                    <p>Retail Locations</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section class="awards-section">
+            <h2>Recognition</h2>
+            <p class="section-intro">Proud recipient of numerous industry awards</p>
+            <div class="awards-grid">
+                <div class="award-badge">
+                    <i class="fas fa-award"></i>
+                    <h3>Best Outdoor Brand</h3>
+                    <p>2023</p>
+                </div>
+                <div class="award-badge">
+                    <i class="fas fa-award"></i>
+                    <h3>Innovation Award</h3>
+                    <p>2023</p>
+                </div>
+                <div class="award-badge">
+                    <i class="fas fa-award"></i>
+                    <h3>Sustainability Leader</h3>
+                    <p>2022-2023</p>
+                </div>
+                <div class="award-badge">
+                    <i class="fas fa-award"></i>
+                    <h3>Customer Choice</h3>
+                    <p>2023</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline-section">
+            <h2>Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">1966</div>
+                    <div class="timeline-content">
+                        <h3>Founded</h3>
+                        <p>The North Face is established in San Francisco</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1980s</div>
+                    <div class="timeline-content">
+                        <h3>Expansion</h3>
+                        <p>Opened first retail stores across the United States</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1990s</div>
+                    <div class="timeline-content">
+                        <h3>International Growth</h3>
+                        <p>Expanded operations to Europe and Asia</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2000s</div>
+                    <div class="timeline-content">
+                        <h3>Digital Revolution</h3>
+                        <p>Launched e-commerce platform</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2010s</div>
+                    <div class="timeline-content">
+                        <h3>Sustainability Focus</h3>
+                        <p>Committed to environmental responsibility</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020s</div>
+                    <div class="timeline-content">
+                        <h3>Digital First</h3>
+                        <p>Transformed into an omnichannel leader</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sustainability Section -->
+        <section class="sustainability-section">
+            <h2>Our Commitment to Sustainability</h2>
+            <div class="sustainability-content">
+                <p>At The North Face, we believe that protecting the environment is essential to our mission. We've committed to reducing our carbon footprint, using sustainable materials, and supporting conservation efforts worldwide.</p>
+                <div class="sustainability-goals">
+                    <div class="goal-item">
+                        <i class="fas fa-recycle"></i>
+                        <h3>100% Recycled Materials</h3>
+                        <p>Working towards using sustainable and recycled materials in all products</p>
+                    </div>
+                    <div class="goal-item">
+                        <i class="fas fa-wind"></i>
+                        <h3>Carbon Neutral</h3>
+                        <p>Aiming for carbon neutrality in operations by 2030</p>
+                    </div>
+                    <div class="goal-item">
+                        <i class="fas fa-tree"></i>
+                        <h3>Conservation</h3>
+                        <p>Supporting global conservation initiatives and protected lands</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Explore?</h2>
+            <p>Join millions of adventurers who trust The North Face</p>
+            <a href="products.html" class="btn btn-primary">Shop Now</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The North Face. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>
