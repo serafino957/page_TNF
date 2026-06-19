@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shopping Cart | The North Face">
+    <title>Shopping Cart | The North Face</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <i class="fas fa-mountain"></i>
+                    <span>The North Face</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            
+            <div class="nav-icons">
+                <button class="nav-icon-btn search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="nav-icon-btn" id="userBtn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <a href="cart.html" class="nav-icon-btn cart-btn active">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <span>Shopping Cart</span>
+        </div>
+    </div>
+
+    <!-- Cart Container -->
+    <div class="container cart-container">
+        <h1>Shopping Cart</h1>
+
+        <div class="cart-content" id="cartContent">
+            <!-- Cart will be populated here -->
+        </div>
+
+        <!-- Empty Cart Message -->
+        <div class="empty-cart" id="emptyCart" style="display: none;">
+            <i class="fas fa-shopping-cart"></i>
+            <h2>Your cart is empty</h2>
+            <p>Start shopping to add items to your cart</p>
+            <a href="products.html" class="btn btn-primary">Continue Shopping</a>
+        </div>
+
+        <!-- Cart with Items -->
+        <div class="cart-with-items" id="cartWithItems" style="display: none;">
+            <div class="cart-items-section">
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartTableBody">
+                        <!-- Cart items will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cart-summary">
+                <h2>Order Summary</h2>
+                
+                <div class="summary-item">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Shipping:</span>
+                    <span id="shippingCost">$0.00</span>
+                </div>
+
+                <div class="summary-item">
+                    <span>Tax:</span>
+                    <span id="tax">$0.00</span>
+                </div>
+
+                <div class="promo-code">
+                    <h3>Promo Code</h3>
+                    <input type="text" id="promoCode" placeholder="Enter promo code">
+                    <button class="btn btn-secondary" id="applyPromo">Apply</button>
+                </div>
+
+                <div class="summary-item discount" id="discountItem" style="display: none;">
+                    <span>Discount:</span>
+                    <span id="discountAmount">-$0.00</span>
+                </div>
+
+                <div class="summary-total">
+                    <span>Total:</span>
+                    <span id="total">$0.00</span>
+                </div>
+
+                <button class="btn btn-primary btn-full" id="checkoutBtn">
+                    Proceed to Checkout
+                </button>
+
+                <a href="products.html" class="btn btn-outline btn-full">
+                    Continue Shopping
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The North Face. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>
