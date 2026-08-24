@@ -2,6 +2,40 @@
 
 /* ========== TABLETS (768px and below) ========== */
 @media (max-width: 768px) {
+    .products-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 28px;
+    }
+
+    .sidebar {
+        position: static;
+    }
+
+    .filter-section {
+        padding: 18px;
+    }
+
+    .filter-group {
+        padding: 14px 0;
+    }
+
+    .products-top {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .sort-by {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .sort-by select {
+        flex: 1;
+        min-width: 0;
+    }
+
     .navbar-container {
         height: 60px;
     }
@@ -74,6 +108,10 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .footer-info {
+        grid-template-columns: 1fr;
+    }
+
     .product-detail {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -122,6 +160,11 @@
         grid-template-columns: 1fr;
     }
 
+    .about-section.reverse .section-content,
+    .about-section.reverse img {
+        order: initial;
+    }
+
     .values-grid {
         grid-template-columns: 1fr;
     }
@@ -160,30 +203,22 @@
         grid-template-columns: 1fr;
     }
 
-    .timeline::before {
-        left: 20px;
+    .timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .timeline-item:nth-child(odd) .timeline-date,
     .timeline-item:nth-child(even) .timeline-date {
-        float: none;
         width: 100%;
         text-align: left;
-        padding-left: 70px;
-        padding-right: 0;
+        padding: 0;
         margin-bottom: 10px;
     }
 
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
-        float: none;
         width: 100%;
-        padding-left: 70px;
-        padding-right: 0;
-    }
-
-    .timeline-item::before {
-        left: 14px;
+        padding: 0;
     }
 }
 
@@ -201,8 +236,17 @@
         gap: 10px;
     }
 
+    .language-switcher {
+        gap: 3px;
+    }
+
+    .language-switcher select {
+        font-size: 12px;
+    }
+
     .hero {
         height: 400px;
+        min-height: 400px;
     }
 
     .hero-title {
@@ -211,6 +255,10 @@
 
     .hero-subtitle {
         font-size: 16px;
+    }
+
+    .hero-content {
+        padding: 28px 15px;
     }
 
     .hero .btn {
@@ -229,6 +277,10 @@
     }
 
     .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline {
         grid-template-columns: 1fr;
     }
 
@@ -251,6 +303,10 @@
 
     .product-card {
         border-radius: 6px;
+    }
+
+    .product-name {
+        min-height: auto;
     }
 
     .product-name {
@@ -418,6 +474,11 @@
 
     .about-section {
         gap: 20px;
+        padding: 24px;
+    }
+
+    .about-container > section:not(.about-section) {
+        padding: 24px;
     }
 
     .about-section h2 {

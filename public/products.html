@@ -37,6 +37,14 @@
             </ul>
             
             <div class="nav-icons">
+                <label class="language-switcher" for="languageSelect">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <span class="sr-only">Language</span>
+                    <select id="languageSelect" aria-label="Select language" onchange="localStorage.setItem('tnf_language', this.value === 'uk' ? 'uk' : 'en'); window.location.reload();">
+                        <option value="en">EN</option>
+                        <option value="uk">UA</option>
+                    </select>
+                </label>
                 <button class="nav-icon-btn search-btn" id="searchBtn">
                     <i class="fas fa-search"></i>
                 </button>
@@ -210,36 +218,36 @@
                     <h3>About</h3>
                     <ul>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="about.html#careers">Careers</a></li>
+                        <li><a href="about.html#press">Press</a></li>
+                        <li><a href="about.html#blog">Blog</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Customer Service</h3>
                     <ul>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Shipping Info</a></li>
-                        <li><a href="#">Returns</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.html#shipping-info">Shipping Info</a></li>
+                        <li><a href="contact.html#returns">Returns</a></li>
+                        <li><a href="contact.html#faq">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Legal</h3>
                     <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="about.html#privacy">Privacy Policy</a></li>
+                        <li><a href="about.html#terms">Terms of Service</a></li>
+                        <li><a href="about.html#cookies">Cookie Policy</a></li>
+                        <li><a href="about.html#accessibility">Accessibility</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Follow Us</h3>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/thenorthface" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/thenorthface" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/thenorthface" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@TheNorthFace" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
