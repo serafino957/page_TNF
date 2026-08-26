@@ -1,14 +1,14 @@
 /* ========== VARIABLES ========== */
 :root {
     --primary-color: #FF6B35;
-    --secondary-color: #004E89;
-    --dark-color: #1B1B1B;
-    --light-color: #F5F5F5;
+    --secondary-color: #20C9D4;
+    --dark-color: #121A2B;
+    --light-color: #121A2B;
     --white: #FFFFFF;
-    --text-color: #333333;
-    --gray: #999999;
-    --light-gray: #EEEEEE;
-    --border-color: #DDDDDD;
+    --text-color: #FFFFFF;
+    --gray: #B8C0CC;
+    --light-gray: #1B263B;
+    --border-color: #42E695;
     --success: #28a745;
     --danger: #dc3545;
     --warning: #ffc107;
@@ -20,10 +20,11 @@
     --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
     --shadow-md: 0 5px 15px rgba(0,0,0,0.15);
     --shadow-lg: 0 10px 30px rgba(0,0,0,0.2);
-    --ink: #14242b;
-    --forest: #173f3a;
-    --sand: #f3eee6;
-    --orange-soft: #fff0e8;
+    --ink: #121A2B;
+    --forest: #42E695;
+    --sand: #121A2B;
+    --orange-soft: #1B263B;
+    --surface: #121A2B;
 }
 
 /* ========== GLOBAL STYLES ========== */
@@ -837,7 +838,7 @@ img {
 }
 
 .footer-section a {
-    color: var(--light-gray);
+    color: #D7DEE8;
     transition: var(--transition);
 }
 
@@ -889,7 +890,7 @@ img {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 20px;
     text-align: center;
-    color: var(--gray);
+    color: #D7DEE8;
 }
 
 .footer-info {
@@ -2606,6 +2607,18 @@ img {
     margin-bottom: 30px;
 }
 
+.promo-content .btn-light {
+    background-color: var(--surface);
+    border-color: var(--forest);
+    color: var(--white);
+}
+
+.promo-content .btn-light:hover {
+    background-color: var(--forest);
+    border-color: var(--forest);
+    color: var(--dark-color);
+}
+
 .newsletter {
     background-color: var(--light-gray);
     padding: 60px 0;
@@ -2671,4 +2684,152 @@ img {
 .about-hero,
 .contact-hero {
     background: linear-gradient(rgba(16, 45, 39, 0.3), rgba(16, 45, 39, 0.3)), url('../assets/greener-graffiti-display.jpg') center / cover;
+}
+
+.filter-section,
+.product-card,
+.main-image,
+.cart-table,
+.checkout-summary,
+.cart-summary,
+.account-sidebar,
+.profile-form,
+.contact-form,
+.settings-group,
+.faq-item,
+.team-member,
+.timeline-item,
+.award-badge,
+.contact-info-card,
+.value-card,
+.review-card {
+    background-color: var(--surface);
+    color: var(--white);
+    border-color: var(--secondary-color);
+}
+
+.product-name,
+.product-info h1,
+.cart-container h1,
+.checkout-container h1,
+.account-section h1,
+.contact-form h2,
+.contact-info-section h2,
+.newsletter h2,
+.product-card h3,
+.footer-section h3 {
+    color: var(--forest);
+}
+
+.product-card .product-price,
+.product-price,
+.summary-total,
+.shipping-price {
+    color: var(--primary-color);
+}
+
+.btn-secondary,
+.btn-outline {
+    border-color: var(--secondary-color);
+}
+
+.btn-outline {
+    color: var(--secondary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+}
+
+.sort-by,
+.results-count p,
+.product-description,
+.product-card .product-info,
+.cart-product-info p,
+.empty-cart p,
+.shipping-time,
+.faq-answer p {
+    color: var(--gray);
+}
+
+.hero-content {
+    background: var(--surface);
+    color: var(--white);
+    border-color: var(--primary-color);
+    box-shadow: 10px 10px 0 var(--secondary-color);
+}
+
+.hero-title,
+.hero-subtitle {
+    color: var(--white);
+}
+
+.navbar,
+.search-bar {
+    background-color: var(--surface);
+    border-color: var(--secondary-color);
+}
+
+.navbar-logo span,
+.nav-link,
+.language-switcher,
+.nav-icon-btn,
+.close-search,
+.hamburger span {
+    color: var(--white);
+}
+
+.navbar-logo span {
+    color: var(--forest);
+}
+
+.hamburger span {
+    background-color: var(--secondary-color);
+}
+
+.nav-link.active,
+.nav-link:hover,
+.language-switcher:hover,
+.nav-icon-btn:hover {
+    color: var(--primary-color);
+}
+
+.filter-group h4,
+.sort-by,
+.form-group label,
+.size-selector label,
+.color-selector label,
+.quantity-selector label,
+.payment-option,
+.shipping-option,
+.review-section h3,
+.account-nav-link,
+.account-section h2,
+.account-section h3 {
+    color: var(--white);
+}
+
+.filter-options label,
+.filter-section > h3,
+.price-display,
+.products-top,
+.breadcrumb a,
+.breadcrumb span {
+    color: var(--gray);
+}
+
+.search-container input,
+.sort-by select,
+input,
+textarea,
+select {
+    background-color: var(--surface);
+    color: var(--white);
+    border-color: var(--secondary-color);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--gray);
 }
