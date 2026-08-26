@@ -1128,6 +1128,27 @@ img {
     color: var(--gray);
 }
 
+.product-features {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 18px;
+    background: var(--surface);
+    border-left: 3px solid var(--forest);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gray);
+    font-size: 14px;
+}
+
+.feature-item i {
+    color: var(--forest);
+}
+
 .size-selector,
 .color-selector,
 .quantity-selector {
