@@ -445,6 +445,26 @@
         }
     }
 
+    function initFaqAccordion() {
+        document.querySelectorAll(".faq-question").forEach(function (question) {
+            question.setAttribute("role", "button");
+            question.setAttribute("tabindex", "0");
+
+            function toggleAnswer() {
+                var item = question.closest(".faq-item");
+                if (item) item.classList.toggle("active");
+            }
+
+            question.addEventListener("click", toggleAnswer);
+            question.addEventListener("keydown", function (event) {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    toggleAnswer();
+                }
+            });
+        });
+    }
+
     function initFooterHighlights() {
         var footerLinks = document.querySelectorAll(".footer a[href]");
         if (!footerLinks.length) return;
@@ -514,6 +534,7 @@
         initSearchBar();
         initUserModal();
         initSimpleForms();
+        initFaqAccordion();
         initFooterHighlights();
         initLanguageSwitcher();
         updateCartBadge();

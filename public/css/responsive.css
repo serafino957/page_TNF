@@ -167,6 +167,7 @@
 
     .values-grid {
         grid-template-columns: 1fr;
+        width: 100%;
     }
 
     .shipping-methods {
@@ -499,6 +500,16 @@
 
     .sustainability-goals {
         grid-template-columns: 1fr;
+    }
+
+    .sustainability-section .sustainability-goals {
+        width: 100%;
+    }
+
+    .sustainability-section .goal-item {
+        width: 100%;
+        max-width: 260px;
+        justify-self: center;
     }
 
     .map-container {
