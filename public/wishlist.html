@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your Wishlist | The North Face">
+    <title>Wishlist | The North Face</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html"><i class="fas fa-mountain"></i><span>The North Face</span></a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="products.html" class="nav-link">Shop</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <label class="language-switcher" for="languageSelect">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <span class="sr-only">Language</span>
+                    <select id="languageSelect" aria-label="Select language">
+                        <option value="en">EN</option>
+                        <option value="uk">UA</option>
+                    </select>
+                </label>
+                <a href="user-account.html" class="nav-icon-btn" aria-label="Open Account"><i class="fas fa-user"></i></a>
+                <a href="wishlist.html" class="nav-icon-btn" aria-label="Wishlist"><i class="fas fa-heart"></i></a>
+                <a href="cart.html" class="nav-icon-btn cart-btn" aria-label="Shopping Cart"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span></a>
+                <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container wishlist-page-container">
+        <div class="wishlist-page-header">
+            <h1>My Wishlist</h1>
+            <p>Products you want to keep close.</p>
+        </div>
+        <div class="products-grid" id="wishlistPageGrid"></div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 The North Face. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>

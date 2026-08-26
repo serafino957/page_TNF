@@ -1,5 +1,6 @@
 (function () {
     var CART_KEY = "tnf_cart";
+    var WISHLIST_KEY = "tnf_wishlist";
     var CHECKOUT_DRAFT_KEY = "tnf_checkout_draft";
     var PRODUCTS = [
         { id: "jacket-apex", name: "Apex Insulated Jacket", category: "jackets", price: 199.0, rating: 5, image: "assets/category-jackets.svg", sizes: ["S", "M", "L", "XL"], colors: ["#1B1B1B", "#004E89"] },
@@ -35,6 +36,23 @@
         }
         if (window.TNF && window.TNF.updateCartBadge) {
             window.TNF.updateCartBadge();
+        }
+    }
+
+    function readWishlist() {
+        if (window.TNF_API) return window.TNF_API.readJson(WISHLIST_KEY, []);
+        try {
+            return JSON.parse(localStorage.getItem(WISHLIST_KEY) || "[]");
+        } catch (error) {
+            return [];
+        }
+    }
+
+    function writeWishlist(wishlist) {
+        if (window.TNF_API) {
+            window.TNF_API.writeJson(WISHLIST_KEY, wishlist);
+        } else {
+            localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
         }
     }
 
@@ -392,6 +410,27 @@
                 var size = sizeSelect ? sizeSelect.value : product.sizes[0];
                 addProductToCart(product, qty, size, selectedColor);
                 notify("Added to cart.");
+            });
+        }
+
+        var wishlistButton = $("wishlistBtn");
+        if (wishlistButton) {
+            var wishlist = readWishlist();
+            var isSaved = wishlist.indexOf(product.id) !== -1;
+            wishlistButton.innerHTML = isSaved ? '<i class="fas fa-heart"></i> Remove from Wishlist' : '<i class="far fa-heart"></i> Add to Wishlist';
+            wishlistButton.addEventListener("click", function () {
+                var currentWishlist = readWishlist();
+                var productIndex = currentWishlist.indexOf(product.id);
+                if (productIndex === -1) {
+                    currentWishlist.push(product.id);
+                    wishlistButton.innerHTML = '<i class="fas fa-heart"></i> Remove from Wishlist';
+                    notify("Added to wishlist.");
+                } else {
+                    currentWishlist.splice(productIndex, 1);
+                    wishlistButton.innerHTML = '<i class="far fa-heart"></i> Add to Wishlist';
+                    notify("Removed from wishlist.");
+                }
+                writeWishlist(currentWishlist);
             });
         }
 
@@ -774,7 +813,8 @@
         });
 
         if ($("totalOrders")) $("totalOrders").textContent = "12";
-        if ($("wishlistCount")) $("wishlistCount").textContent = "5";
+        var wishlist = readWishlist();
+        if ($("wishlistCount")) $("wishlistCount").textContent = String(wishlist.length);
         if ($("totalSpent")) $("totalSpent").textContent = "$2,640.00";
         if ($("rewardPoints")) $("rewardPoints").textContent = "840";
 
@@ -785,7 +825,10 @@
         if ($("addressesList")) $("addressesList").innerHTML = "<p>123 Mountain View Rd, Denver, CO 80202, US</p>";
 
         if ($("wishlistGrid")) {
-            $("wishlistGrid").innerHTML = PRODUCTS.slice(0, 3).map(buildProductCard).join("");
+            var wishlistProducts = wishlist.map(function (id) {
+                return PRODUCTS.find(function (product) { return product.id === id; });
+            }).filter(Boolean);
+            $("wishlistGrid").innerHTML = wishlistProducts.length ? wishlistProducts.map(buildProductCard).join("") : '<p class="empty-wishlist">Your wishlist is empty.</p>';
             bindAddToCartButtons();
         }
 
@@ -810,6 +853,19 @@
         }
     }
 
+    function renderWishlistPage() {
+        var grid = $("wishlistPageGrid");
+        if (!grid) return;
+
+        var wishlistProducts = readWishlist().map(function (id) {
+            return PRODUCTS.find(function (product) { return product.id === id; });
+        }).filter(Boolean);
+
+        grid.innerHTML = wishlistProducts.length ? wishlistProducts.map(buildProductCard).join("") :
+            '<div class="empty-wishlist"><i class="far fa-heart"></i><h2>Your wishlist is empty</h2><p>Save products here to find them again later.</p><a class="btn btn-primary" href="products.html">Browse Products</a></div>';
+        bindAddToCartButtons();
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
         renderFeaturedProducts();
         renderProductsPage();
@@ -817,5 +873,6 @@
         renderCartPage();
         renderCheckoutPage();
         renderAccountPage();
+        renderWishlistPage();
     });
 })();

@@ -1662,6 +1662,49 @@ img {
     min-height: 70vh;
 }
 
+.wishlist-page-container {
+    min-height: 70vh;
+    padding-top: 56px;
+    padding-bottom: 70px;
+}
+
+.wishlist-page-header {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.wishlist-page-header h1 {
+    margin-bottom: 8px;
+    color: var(--forest);
+}
+
+.wishlist-page-header p,
+.empty-wishlist p {
+    color: var(--gray);
+}
+
+.empty-wishlist {
+    grid-column: 1 / -1;
+    padding: 60px 20px;
+    background: var(--surface);
+    text-align: center;
+}
+
+.empty-wishlist i {
+    margin-bottom: 18px;
+    color: var(--primary-color);
+    font-size: 56px;
+}
+
+.empty-wishlist h2 {
+    margin-bottom: 10px;
+    color: var(--forest);
+}
+
+.empty-wishlist .btn {
+    margin-top: 24px;
+}
+
 .account-content {
     display: grid;
     grid-template-columns: 250px 1fr;
@@ -2372,6 +2415,40 @@ img {
 
 .contact-container .faq-answer p {
     color: var(--gray);
+}
+
+.account-container .recent-orders,
+.account-container .orders-list {
+    background: var(--surface);
+    color: var(--white);
+    border-color: transparent;
+}
+
+.account-container #recentOrdersList p,
+.account-container #ordersList p {
+    color: var(--gray);
+}
+
+.account-container .address-form .btn-secondary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+}
+
+.account-container .address-form .btn-secondary:hover {
+    background-color: #e55a2b;
+    border-color: #e55a2b;
+}
+
+.account-container .address-form .btn-primary {
+    background-color: var(--forest);
+    border-color: var(--forest);
+    color: var(--dark-color);
+}
+
+.account-container .address-form .btn-primary:hover {
+    background-color: #2fc879;
+    border-color: #2fc879;
 }
 
 .contact-container .support-info {
