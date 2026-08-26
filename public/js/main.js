@@ -445,11 +445,76 @@
         }
     }
 
+    function initFooterHighlights() {
+        var footerLinks = document.querySelectorAll(".footer a[href]");
+        if (!footerLinks.length) return;
+
+        var storageKey = "tnf_footer_highlight";
+
+        function getTargetText(linkUrl) {
+            var target = null;
+
+            if (linkUrl.hash) {
+                target = document.getElementById(decodeURIComponent(linkUrl.hash.slice(1)));
+            } else if (linkUrl.pathname === window.location.pathname) {
+                target = document.querySelector("h1");
+            }
+
+            if (!target) return null;
+            return target.matches("h1, h2, h3, p") ? target : target.querySelector("h1, h2, h3, p") || target;
+        }
+
+        function highlightTarget(linkUrl) {
+            var targetText = getTargetText(linkUrl);
+            if (!targetText) return;
+
+            targetText.classList.remove("footer-target-highlight");
+            void targetText.offsetWidth;
+            targetText.classList.add("footer-target-highlight");
+            window.setTimeout(function () {
+                targetText.classList.remove("footer-target-highlight");
+            }, 2000);
+        }
+
+        var pendingHighlight = null;
+        try {
+            pendingHighlight = JSON.parse(sessionStorage.getItem(storageKey) || "null");
+            sessionStorage.removeItem(storageKey);
+        } catch (error) {
+            pendingHighlight = null;
+        }
+
+        footerLinks.forEach(function (link) {
+            var linkUrl = new URL(link.href, window.location.href);
+
+            if (pendingHighlight &&
+                window.location.pathname === pendingHighlight.path &&
+                window.location.hash === pendingHighlight.hash) {
+                highlightTarget(linkUrl);
+            }
+
+            link.addEventListener("click", function () {
+                if (linkUrl.pathname === window.location.pathname) {
+                    highlightTarget(linkUrl);
+                }
+                try {
+                    sessionStorage.setItem(storageKey, JSON.stringify({
+                        path: linkUrl.pathname,
+                        hash: linkUrl.hash
+                    }));
+                } catch (error) {
+                    // Highlighting the current link still works when storage is unavailable.
+                }
+            });
+        });
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
         initMobileMenu();
         initSearchBar();
         initUserModal();
         initSimpleForms();
+        initFooterHighlights();
         initLanguageSwitcher();
         updateCartBadge();
     });
@@ -457,4 +522,5 @@
     window.TNF = window.TNF || {};
     window.TNF.updateCartBadge = updateCartBadge;
     window.TNF.translatePage = translatePage;
+    window.TNF.translateValue = translateValue;
 })();

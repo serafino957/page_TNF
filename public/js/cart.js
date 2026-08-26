@@ -47,6 +47,11 @@
         return "★".repeat(rating) + "☆".repeat(5 - rating);
     }
 
+    function localizedProductName(name) {
+        var language = document.body.dataset.language || "en";
+        return window.TNF && window.TNF.translateValue ? window.TNF.translateValue(name, language) : name;
+    }
+
     function notify(message) {
         var box = $("appNotice");
         if (!box) {
@@ -101,16 +106,36 @@
     }
 
     function buildProductCard(product) {
+        var productName = localizedProductName(product.name);
         return "" +
-            '<article class="product-card">' +
-            '<img class="product-image" src="' + product.image + '" alt="' + product.name + '">' +
+            '<article class="product-card" data-product-id="' + product.id + '" tabindex="0" role="link" aria-label="View ' + productName + '">' +
+            '<img class="product-image" src="' + product.image + '" alt="' + productName + '">' +
             '<div class="product-info">' +
-            '<h3 class="product-name">' + product.name + '</h3>' +
+            '<h3 class="product-name">' + productName + '</h3>' +
             '<div class="product-rating">' + stars(product.rating) + '</div>' +
             '<div class="product-price">' + formatCurrency(product.price) + '</div>' +
             '<button class="btn btn-primary" data-add-cart="' + product.id + '">Add to Cart</button>' +
             '</div>' +
             '</article>';
+    }
+
+    function bindProductCards() {
+        document.querySelectorAll(".product-card[data-product-id]").forEach(function (card) {
+            function openProduct() {
+                window.location.href = "product-detail.html?id=" + encodeURIComponent(card.getAttribute("data-product-id"));
+            }
+
+            card.addEventListener("click", function (event) {
+                if (event.target.closest("[data-add-cart]")) return;
+                openProduct();
+            });
+            card.addEventListener("keydown", function (event) {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    openProduct();
+                }
+            });
+        });
     }
 
     function bindAddToCartButtons() {
@@ -123,6 +148,7 @@
                 notify("Added to cart: " + product.name);
             });
         });
+        bindProductCards();
     }
 
     function renderFeaturedProducts() {
@@ -307,8 +333,8 @@
         var id = params.get("id") || PRODUCTS[0].id;
         var product = PRODUCTS.find(function (p) { return p.id === id; }) || PRODUCTS[0];
 
-        title.textContent = product.name;
-        if ($("breadcrumbProduct")) $("breadcrumbProduct").textContent = product.name;
+        title.textContent = localizedProductName(product.name);
+        if ($("breadcrumbProduct")) $("breadcrumbProduct").textContent = localizedProductName(product.name);
         if ($("mainImage")) $("mainImage").src = product.image;
         if ($("productPrice")) $("productPrice").textContent = formatCurrency(product.price);
         if ($("productRating")) $("productRating").textContent = stars(product.rating);

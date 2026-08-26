@@ -43,12 +43,10 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     background-color: #102d27;
-    background-image:
-        radial-gradient(ellipse at 8% 18%, rgba(137, 214, 92, 0.25) 0 5%, transparent 20%),
-        radial-gradient(ellipse at 92% 12%, rgba(0, 190, 145, 0.22) 0 4%, transparent 18%),
-        linear-gradient(118deg, transparent 0 18%, rgba(190, 242, 142, 0.08) 18.2% 19%, transparent 19.3% 100%),
-        linear-gradient(72deg, transparent 0 64%, rgba(255, 191, 73, 0.1) 64.2% 65.2%, transparent 65.5% 100%),
-        repeating-linear-gradient(135deg, rgba(195, 241, 173, 0.035) 0 1px, transparent 1px 7px);
+    background-image: url('../assets/greener-graffiti-display.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-attachment: fixed;
 }
 
@@ -604,9 +602,12 @@ img {
     position: relative;
     z-index: 2;
     text-align: center;
-    color: var(--white);
+    color: var(--ink);
     max-width: 720px;
     padding: 40px 24px;
+    background: var(--white);
+    border: 4px solid var(--primary-color);
+    box-shadow: 10px 10px 0 var(--forest);
 }
 
 .hero-title {
@@ -622,6 +623,12 @@ img {
     font-size: 24px;
     margin-bottom: 30px;
     animation: slideUp 1s ease 0.2s both;
+}
+
+.hero-title,
+.hero-subtitle {
+    color: var(--ink);
+    text-shadow: none;
 }
 
 .hero .btn {
@@ -836,6 +843,24 @@ img {
 
 .footer-section a:hover {
     color: var(--primary-color);
+}
+
+.footer-target-highlight {
+    scroll-margin-top: 100px;
+    border-radius: 3px;
+    background: linear-gradient(transparent 52%, rgba(255, 107, 53, 0.35) 52%);
+    outline: 3px solid rgba(255, 107, 53, 0.75);
+    outline-offset: 6px;
+    animation: footer-target-highlight 2s ease-out;
+}
+
+@keyframes footer-target-highlight {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+    }
+    20% {
+        box-shadow: 0 0 0 5px rgba(255, 107, 53, 0.3);
+    }
 }
 
 .social-links {
@@ -2619,4 +2644,31 @@ img {
 
 .promotions {
     padding: 60px 0;
+}
+
+.featured-products {
+    background: var(--sand);
+}
+
+.categories,
+.stats-section,
+.timeline-section,
+.faq-section,
+.awards-section,
+.sustainability-section {
+    background-color: var(--forest);
+}
+
+.newsletter {
+    background-color: var(--light-gray);
+}
+
+.about-container > section:not(.about-section) {
+    background: var(--forest);
+}
+
+.hero-video-fallback,
+.about-hero,
+.contact-hero {
+    background: linear-gradient(rgba(16, 45, 39, 0.3), rgba(16, 45, 39, 0.3)), url('../assets/greener-graffiti-display.jpg') center / cover;
 }
