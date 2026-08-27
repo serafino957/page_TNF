@@ -3,12 +3,14 @@
     var WISHLIST_KEY = "tnf_wishlist";
     var CHECKOUT_DRAFT_KEY = "tnf_checkout_draft";
     var PRODUCTS = [
-        { id: "jacket-apex", name: "Apex Insulated Jacket", description: "A warm insulated jacket for cold trail days, with lightweight protection against wind and light rain.", category: "jackets", price: 199.0, rating: 5, image: "assets/category-jackets.svg", sizes: ["S", "M", "L", "XL"], colors: ["#1B1B1B", "#004E89"], features: ["Water-resistant shell", "Synthetic insulation", "Adjustable hood", "Three zip pockets"] },
-        { id: "shell-wind", name: "Windproof Shell", description: "A lightweight shell built to block strong wind while keeping you comfortable during fast-moving adventures.", category: "jackets", price: 149.0, rating: 4, image: "assets/category-jackets.svg", sizes: ["S", "M", "L"], colors: ["#334155", "#0F172A"], features: ["Windproof construction", "Breathable fabric", "Sealed seams", "Packable design"] },
-        { id: "backpack-alpine", name: "Alpine Trail Backpack", description: "A versatile 28-liter daypack with organized storage for mountain hikes, commutes, and weekend exploration.", category: "backpacks", price: 129.0, rating: 5, image: "assets/category-backpacks.svg", sizes: ["One Size"], colors: ["#1B4965", "#FF6B35"], features: ["28L capacity", "Padded laptop sleeve", "Hydration compatible", "Adjustable shoulder straps"] },
-        { id: "duffel-base", name: "Basecamp Duffel", description: "A rugged, spacious duffel designed to carry everything you need for basecamp, travel, or the gym.", category: "backpacks", price: 139.0, rating: 4, image: "assets/category-backpacks.svg", sizes: ["One Size"], colors: ["#0369A1", "#16A34A"], features: ["Durable recycled fabric", "71L capacity", "Removable shoulder strap", "Separate shoe compartment"] },
-        { id: "boots-ridge", name: "Ridge Hiker Boots", description: "Supportive waterproof hiking boots with dependable traction for rocky trails and changing mountain weather.", category: "footwear", price: 169.0, rating: 4, image: "assets/category-footwear.svg", sizes: ["8", "9", "10", "11"], colors: ["#4B5563", "#111827"], features: ["Waterproof leather upper", "Vibram traction outsole", "EVA cushioning", "Protective toe cap"] },
-        { id: "gloves-summit", name: "Summit Thermal Gloves", description: "Warm, dexterous gloves that protect your hands from the cold while keeping touchscreen control close at hand.", category: "accessories", price: 49.0, rating: 4, image: "assets/category-accessories.svg", sizes: ["S", "M", "L"], colors: ["#111827", "#EF4444"], features: ["Thermal fleece lining", "Touchscreen compatible", "Grippy palm", "Elastic wrist cuff"] }
+        { id: "jacket-apex", name: "Apex Insulated Jacket", description: "A warm insulated jacket for cold trail days, with lightweight protection against wind and light rain.", category: "jackets", price: 199.0, rating: 5, image: "assets/apex-insulated-jacket.jpg", images: ["assets/apex-insulated-jacket.jpg", "assets/apex-insulated-jacket-alt1.jpg", "assets/apex-insulated-jacket-alt2.jpg"], sizes: ["S", "M", "L", "XL"], colors: ["#1B1B1B", "#004E89"], features: ["Water-resistant shell", "Synthetic insulation", "Adjustable hood", "Three zip pockets"] },
+        { id: "shell-wind", name: "Windproof Shell", description: "A lightweight shell built to block strong wind while keeping you comfortable during fast-moving adventures.", category: "jackets", price: 149.0, rating: 4, image: "assets/windproof-shell.jpg", images: ["assets/windproof-shell.jpg", "assets/windproof-shell-alt1.jpg", "assets/windproof-shell-alt2.jpg"], sizes: ["S", "M", "L"], colors: ["#334155", "#0F172A"], features: ["Windproof construction", "Breathable fabric", "Sealed seams", "Packable design"] },
+        { id: "backpack-alpine", name: "Alpine Trail Backpack", description: "A versatile 28-liter daypack with organized storage for mountain hikes, commutes, and weekend exploration.", category: "backpacks", price: 129.0, rating: 5, image: "assets/alpine-trail-backpack.jpg", images: ["assets/alpine-trail-backpack.jpg", "assets/alpine-trail-backpack-alt1.jpg", "assets/alpine-trail-backpack-alt2.jpg"], sizes: ["One Size"], colors: ["#1B4965", "#FF6B35"], features: ["28L capacity", "Padded laptop sleeve", "Hydration compatible", "Adjustable shoulder straps"] },
+        { id: "duffel-base", name: "Basecamp Duffel", description: "A rugged, spacious duffel designed to carry everything you need for basecamp, travel, or the gym.", category: "backpacks", price: 139.0, rating: 4, image: "assets/basecamp-duffel.jpg", images: ["assets/basecamp-duffel.jpg", "assets/basecamp-duffel-alt1.jpg", "assets/basecamp-duffel-alt2.jpg"], sizes: ["One Size"], colors: ["#0369A1", "#16A34A"], features: ["Durable recycled fabric", "71L capacity", "Removable shoulder strap", "Separate shoe compartment"] },
+        { id: "boots-ridge", name: "Ridge Hiker Boots", description: "Supportive waterproof hiking boots with dependable traction for rocky trails and changing mountain weather.", category: "footwear", price: 169.0, rating: 4, images: ["assets/category-footwear.jpg", "assets/category-footwear-alt1.jpg", "assets/category-footwear-alt3.jpg"], image: "assets/category-footwear.jpg", sizes: ["8", "9", "10", "11"], colors: ["#4B5563", "#111827"], features: ["Waterproof leather upper", "Vibram traction outsole", "EVA cushioning", "Protective toe cap"] },
+        { id: "gloves-summit", name: "Summit Thermal Gloves", description: "Warm, dexterous gloves that protect your hands from the cold while keeping touchscreen control close at hand.", category: "accessories", price: 49.0, rating: 4, image: "assets/category-accessories.jpg", images: ["assets/category-accessories.jpg", "assets/category-accessories-alt1.jpg", "assets/category-accessories-alt2.jpg"], sizes: ["S", "M", "L"], colors: ["#111827", "#EF4444"], features: ["Thermal fleece lining", "Touchscreen compatible", "Grippy palm", "Elastic wrist cuff"] },
+        { id: "tent-summit", name: "Summit Trail Tent", description: "A lightweight two-person tent designed for reliable shelter on overnight hikes and weekend adventures.", category: "tents", price: 249.0, rating: 5, image: "assets/summit-trail-tent.jpg", images: ["assets/summit-trail-tent.jpg", "assets/summit-trail-tent-alt1.jpg", "assets/summit-trail-tent-alt2.jpg"], sizes: ["2 Person"], colors: ["#1B4965", "#4B5563"], features: ["Two-person capacity", "Waterproof rainfly", "Aluminum poles", "Compact carry bag"] },
+        { id: "sleeping-bag-basecamp", name: "Basecamp Sleeping Bag", description: "A warm, packable sleeping bag built for comfortable nights at camp in cool conditions.", category: "sleeping-bags", price: 129.0, rating: 4, image: "assets/basecamp-sleeping-bag.jpg", images: ["assets/basecamp-sleeping-bag.jpg", "assets/basecamp-sleeping-bag-int.jpg", "assets/basecamp-sleeping-bag-alt1.jpg"], sizes: ["Regular"], colors: ["#111827", "#1B4965"], features: ["Synthetic insulation", "Comfortable hood", "Full-length zipper", "Packable stuff sack"] }
     ];
     var productsListState = {
         page: 1,
@@ -358,6 +360,32 @@
         title.textContent = localizedProductName(product.name);
         if ($("breadcrumbProduct")) $("breadcrumbProduct").textContent = localizedProductName(product.name);
         if ($("mainImage")) $("mainImage").src = product.image;
+        var thumbnailImages = $("thumbnailImages");
+        if (thumbnailImages) {
+            thumbnailImages.innerHTML = (product.images || [product.image]).map(function (image, index) {
+                return '<img src="' + image + '" alt="' + localizedProductName(product.name) + ' ' + (index + 1) + '" class="' + (index === 0 ? "active" : "") + '">';
+            }).join("");
+            thumbnailImages.querySelectorAll("img").forEach(function (thumbnail) {
+                thumbnail.addEventListener("click", function () {
+                    $("mainImage").src = thumbnail.src;
+                    thumbnailImages.querySelectorAll("img").forEach(function (item) { item.classList.remove("active"); });
+                    thumbnail.classList.add("active");
+                });
+            });
+        }
+        var mainImage = $("mainImage");
+        if (mainImage && !mainImage.dataset.zoomBound) {
+            mainImage.addEventListener("click", function (event) {
+                if (!mainImage.classList.contains("zoomed")) {
+                    var imageBounds = mainImage.getBoundingClientRect();
+                    var originX = ((event.clientX - imageBounds.left) / imageBounds.width) * 100;
+                    var originY = ((event.clientY - imageBounds.top) / imageBounds.height) * 100;
+                    mainImage.style.transformOrigin = originX + "% " + originY + "%";
+                }
+                mainImage.classList.toggle("zoomed");
+            });
+            mainImage.dataset.zoomBound = "1";
+        }
         if ($("productPrice")) $("productPrice").textContent = formatCurrency(product.price);
         if ($("productRating")) $("productRating").textContent = stars(product.rating);
         if ($("ratingCount")) $("ratingCount").textContent = "(127 reviews)";
