@@ -40,6 +40,8 @@
             "Backpacks": "Рюкзаки",
             "Footwear": "Взуття",
             "Accessories": "Аксесуари",
+            "Tents": "Намети",
+            "Sleeping Bags": "Спальні мішки",
             "Contact Us": "Зв'яжіться з нами",
             "Shopping Cart": "Кошик",
             "Your cart is empty": "Ваш кошик порожній",
@@ -89,6 +91,8 @@
             "Basecamp Duffel": "Сумка Basecamp Duffel",
             "Ridge Hiker Boots": "Черевики Ridge Hiker",
             "Summit Thermal Gloves": "Термальні рукавички Summit",
+            "Summit Trail Tent": "Намет Summit Trail",
+            "Basecamp Sleeping Bag": "Спальний мішок Basecamp",
             "A warm insulated jacket for cold trail days, with lightweight protection against wind and light rain.": "Тепла утеплена куртка для холодних днів на маршруті з легким захистом від вітру та невеликого дощу.",
             "A lightweight shell built to block strong wind while keeping you comfortable during fast-moving adventures.": "Легка куртка, створена для захисту від сильного вітру та комфорту під час активних пригод.",
             "A versatile 28-liter daypack with organized storage for mountain hikes, commutes, and weekend exploration.": "Універсальний рюкзак об'ємом 28 літрів з продуманим зберіганням для гірських походів, поїздок і подорожей на вихідні.",
@@ -397,7 +401,20 @@
             searchSubmit.addEventListener("click", function () {
                 var term = searchInput.value.trim();
                 if (!term) return;
-                window.location.href = "products.html?search=" + encodeURIComponent(term);
+                if (window.location.pathname.endsWith("products.html")) {
+                    var filterState = {
+                        categories: Array.prototype.slice.call(document.querySelectorAll(".category-filter:checked")).map(function (input) { return input.value; }),
+                        sizes: Array.prototype.slice.call(document.querySelectorAll(".size-filter:checked")).map(function (input) { return input.value; }),
+                        rating: (document.querySelector("input[name='rating']:checked") || {}).value || "",
+                        minPrice: ($("priceMin") || {}).value || "0",
+                        maxPrice: ($("priceMax") || {}).value || "500",
+                        sort: ($( "sortSelect") || {}).value || "featured"
+                    };
+                    try { sessionStorage.setItem("tnf_filter_state", JSON.stringify(filterState)); } catch (error) { }
+                }
+                var searchParams = window.location.pathname.endsWith("products.html") ? new URLSearchParams(window.location.search) : new URLSearchParams();
+                searchParams.set("search", term);
+                window.location.href = "products.html?" + searchParams.toString();
             });
         }
 

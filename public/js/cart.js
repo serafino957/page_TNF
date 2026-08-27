@@ -194,9 +194,28 @@
         var categoryFilters = document.querySelectorAll(".category-filter");
         var sizeFilters = document.querySelectorAll(".size-filter");
         var ratingFilters = document.querySelectorAll("input[name='rating']");
+        var savedFilterState = null;
+
+        if (search) {
+            try {
+                savedFilterState = JSON.parse(sessionStorage.getItem("tnf_filter_state") || "null");
+                sessionStorage.removeItem("tnf_filter_state");
+            } catch (error) {
+                savedFilterState = null;
+            }
+        }
+
+        if (savedFilterState) {
+            categoryFilters.forEach(function (checkbox) { checkbox.checked = savedFilterState.categories.indexOf(checkbox.value) !== -1; });
+            sizeFilters.forEach(function (checkbox) { checkbox.checked = savedFilterState.sizes.indexOf(checkbox.value) !== -1; });
+            ratingFilters.forEach(function (radio) { radio.checked = radio.value === savedFilterState.rating; });
+            if ($("priceMin")) $("priceMin").value = savedFilterState.minPrice;
+            if ($("priceMax")) $("priceMax").value = savedFilterState.maxPrice;
+            if ($("sortSelect")) $("sortSelect").value = savedFilterState.sort;
+        }
 
         // Sync from URL only on first render to avoid overriding user filter changes.
-        if (category && categoryFilters.length && !grid.dataset.categorySynced) {
+        if (category && categoryFilters.length && !savedFilterState && !grid.dataset.categorySynced) {
             categoryFilters.forEach(function (checkbox) {
                 checkbox.checked = checkbox.value === category;
             });
@@ -217,7 +236,13 @@
         var filtered = PRODUCTS.filter(function (product) {
             var categoryFromUrlOk = !category || product.category === category;
             var categoryFromFiltersOk = selectedCategories.length === 0 || selectedCategories.indexOf(product.category) !== -1;
-            var searchOk = !search || product.name.toLowerCase().indexOf(search) !== -1;
+            var searchValues = [product.name, product.description, product.category];
+            if (window.TNF && window.TNF.translateValue) {
+                searchValues.push(window.TNF.translateValue(product.name, "uk"));
+                searchValues.push(window.TNF.translateValue(product.description, "uk"));
+                searchValues.push(window.TNF.translateValue(product.category, "uk"));
+            }
+            var searchOk = !search || searchValues.join(" ").toLowerCase().indexOf(search) !== -1;
             var sizeOk = selectedSizes.length === 0 || selectedSizes.some(function (size) {
                 return product.sizes.indexOf(size) !== -1;
             });
@@ -319,6 +344,12 @@
         categoryFilters.forEach(function (checkbox) {
             if (!checkbox.dataset.bound) {
                 checkbox.addEventListener("change", function () {
+                    var currentParams = new URLSearchParams(window.location.search);
+                    if (currentParams.has("category") || currentParams.has("search")) {
+                        currentParams.delete("category");
+                        currentParams.delete("search");
+                        window.history.replaceState({}, "", "products.html?" + currentParams.toString());
+                    }
                     productsListState.page = 1;
                     renderProductsPage();
                 });
