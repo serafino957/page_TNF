@@ -1164,10 +1164,7 @@
         }
         if ($("ordersList")) $("ordersList").innerHTML = "<p>Use the filter to browse your order history.</p>";
         if ($("addressesList")) {
-            var addresses = Array.isArray(currentUser.addresses) && currentUser.addresses.length ? currentUser.addresses : [{ street: "123 Mountain View Rd", city: "Denver", state: "CO", zip: "80202", country: "US" }];
-            $("addressesList").innerHTML = addresses.map(function (address) {
-                return '<p>' + [address.street, address.city, address.state, address.zip, address.country].filter(Boolean).join(", ") + '</p>';
-            }).join("");
+            renderAccountAddresses(Array.isArray(currentUser.addresses) ? currentUser.addresses : []);
         }
 
         var accountSettings = Object.assign({
@@ -1200,10 +1197,40 @@
         renderAccountWishlist();
 
         if ($("addAddressBtn") && $("addressForm")) {
-            $("addAddressBtn").addEventListener("click", function () { $("addressForm").style.display = "block"; });
+            if ($("addAddressBtn").dataset.addressBound !== "1") {
+                $("addAddressBtn").dataset.addressBound = "1";
+                $("addAddressBtn").addEventListener("click", function () { $("addressForm").style.display = "block"; });
+            }
         }
         if ($("cancelAddressBtn") && $("addressForm")) {
-            $("cancelAddressBtn").addEventListener("click", function () { $("addressForm").style.display = "none"; });
+            if ($("cancelAddressBtn").dataset.addressBound !== "1") {
+                $("cancelAddressBtn").dataset.addressBound = "1";
+                $("cancelAddressBtn").addEventListener("click", function () { $("addressForm").style.display = "none"; });
+            }
+        }
+        if ($("addressDetailsForm") && $("addressDetailsForm").dataset.addressBound !== "1") {
+            var addressForm = $("addressDetailsForm");
+            addressForm.dataset.addressBound = "1";
+            addressForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+                var addresses = Array.isArray(currentUser.addresses) ? currentUser.addresses.slice() : [];
+                var isDefault = $("defaultAddress").checked;
+                if (isDefault) addresses.forEach(function (address) { address.default = false; });
+                addresses.push({
+                    street: $("addrStreet").value.trim(),
+                    city: $("addrCity").value.trim(),
+                    state: $("addrState").value.trim(),
+                    zip: $("addrZip").value.trim(),
+                    country: $("addrCountry").value,
+                    default: isDefault || addresses.length === 0
+                });
+                saveCurrentUserProfile({ addresses: addresses });
+                currentUser.addresses = addresses;
+                renderAccountAddresses(addresses);
+                addressForm.reset();
+                $("addressForm").style.display = "none";
+                notify("Address saved.");
+            });
         }
 
         if ($("profileForm")) {
@@ -1261,6 +1288,26 @@
                 window.location.href = "index.html";
             });
         }
+    }
+
+    function renderAccountAddresses(addresses) {
+        var list = $("addressesList");
+        if (!list) return;
+
+        list.className = "address-list";
+        if (!addresses.length) {
+            list.innerHTML = "<p>No saved addresses yet.</p>";
+            return;
+        }
+
+        list.innerHTML = addresses.map(function (address, index) {
+            var addressText = [address.street, address.city, address.state, address.zip, address.country].filter(Boolean).join(", ");
+            return '<article class="address-card' + (address.default ? " default" : "") + '">' +
+                '<h3>Address ' + (index + 1) + '</h3>' +
+                '<p>' + addressText + '</p>' +
+                (address.default ? '<span class="address-default-label">Default address</span>' : "") +
+                '</article>';
+        }).join("");
     }
 
     function renderAccountWishlist() {
