@@ -51,9 +51,11 @@
         left: 0;
         right: 0;
         flex-direction: column;
-        background-color: var(--white);
+        background-color: var(--surface);
         gap: 0;
         box-shadow: var(--shadow-md);
+        border-top: 1px solid rgba(57, 229, 140, 0.35);
+        z-index: 100;
     }
 
     .nav-menu.active {
@@ -61,12 +63,13 @@
     }
 
     .nav-item {
-        border-bottom: 1px solid var(--border-color);
+        border-bottom: 1px solid rgba(203, 213, 225, 0.2);
     }
 
     .nav-link {
         display: block;
         padding: 15px 20px;
+        color: var(--text-color);
     }
 
     .nav-link::after {
@@ -74,7 +77,8 @@
     }
 
     .nav-link.active {
-        background-color: var(--light-gray);
+        background-color: rgba(57, 229, 140, 0.14);
+        color: var(--secondary-color);
     }
 
     .hamburger {
