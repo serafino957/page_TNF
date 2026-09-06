@@ -290,7 +290,54 @@
         "Friday": "П'ятниця", "Saturday": "Субота", "Sunday": "Неділя",
         "January": "січень", "February": "лютий", "March": "березень", "April": "квітень",
         "May": "травень", "June": "червень", "July": "липень", "August": "серпень",
-        "September": "вересень", "October": "жовтень", "November": "листопад", "December": "грудень"
+        "September": "вересень", "October": "жовтень", "November": "листопад", "December": "грудень",
+        "Login": "Вхід", "Register": "Реєстрація", "Sign In": "Увійти", "Create Account": "Створити обліковий запис",
+        "Password": "Пароль", "Your password": "Ваш пароль", "My Wishlist": "Мій список бажань",
+        "Products you want to keep close.": "Товари, які ви хочете зберегти поруч.",
+        "Shopping Cart": "Кошик",
+        "Sale": "Розпродаж", "View": "Переглянути", "to wishlist": "до списку бажань",
+        "Add": "Додати", "Remove": "Видалити", "Remove from Wishlist": "Видалити зі списку бажань",
+        "Add to Wishlist": "Додати до списку бажань", "Color option": "Варіант кольору",
+        "Color option:": "Варіант кольору:", "In stock": "У наявності", "(127 reviews)": "(127 відгуків)",
+        "Size:": "Розмір:", "Card ending in": "Картка, що закінчується на",
+        "Public Profile": "Публічний профіль", "Active Member": "Активний учасник",
+        "No saved addresses yet.": "Збережених адрес ще немає.", "Use the filter to browse your order history.": "Використовуйте фільтр, щоб переглянути історію замовлень.",
+        "Wishlist storage is unavailable in this browser.": "Сховище списку бажань недоступне в цьому браузері.",
+        "Added to cart": "Додано до кошика", "Added to cart:": "Додано до кошика:",
+        "Added to cart.": "Додано до кошика.", "Added to wishlist.": "Додано до списку бажань.",
+        "Removed from wishlist.": "Видалено зі списку бажань.", "Promo code applied.": "Промокод застосовано.",
+        "Invalid promo code. Try TNF10": "Недійсний промокод. Спробуйте TNF10",
+        "Please complete all shipping fields.": "Заповніть усі поля доставки.", "Please enter a valid email.": "Введіть дійсну електронну адресу.",
+        "Cardholder name is required.": "Введіть ім'я власника картки.", "Please enter a valid card number.": "Введіть дійсний номер картки.",
+        "Expiry must be in MM/YY format.": "Термін дії має бути у форматі MM/РР.", "Please enter a valid CVV.": "Введіть дійсний CVV.",
+        "Order placed successfully.": "Замовлення успішно оформлено.", "Invalid email or password.": "Неправильна електронна адреса або пароль.",
+        "Welcome back,": "З поверненням,", "Please fill in all required fields.": "Заповніть усі обов'язкові поля.",
+        "Password must be at least 6 characters long.": "Пароль має містити щонайменше 6 символів.",
+        "An account with this email already exists.": "Обліковий запис із цією електронною адресою вже існує.",
+        "Account created successfully.": "Обліковий запис успішно створено.", "Settings saved.": "Налаштування збережено.",
+        "Address saved.": "Адресу збережено.", "This email is already in use by another account.": "Ця електронна адреса вже використовується іншим обліковим записом.",
+        "Profile updated.": "Профіль оновлено.", "Logged out.": "Ви вийшли з облікового запису.",
+        "Thanks for subscribing.": "Дякуємо за підписку.", "Message sent. We will get back to you shortly.": "Повідомлення надіслано. Ми скоро з вами зв'яжемося.",
+        "You are browsing as a guest user.": "Ви переглядаєте сайт як гість.", "Open menu": "Відкрити меню", "Shopping Cart": "Кошик",
+        "Summer Sale": "Літній розпродаж", "Up to 50% off on selected items": "Знижки до 50% на вибрані товари", "Shop Sale": "До розпродажу",
+        "Subscribe to Our Newsletter": "Підпишіться на нашу розсилку", "Get exclusive deals and new product updates": "Отримуйте ексклюзивні пропозиції та новини про товари", "Subscribe": "Підписатися",
+        "User Account": "Обліковий запис", "Total": "Разом", "Action": "Дія", "Shipping Address": "Адреса доставки",
+        "First Name *": "Ім'я *", "Last Name *": "Прізвище *", "Email *": "Електронна адреса *", "Phone *": "Телефон *",
+        "Street Address *": "Адреса *", "City *": "Місто *", "State/Province *": "Штат/область *", "ZIP/Postal Code *": "Поштовий індекс *", "Country *": "Країна *",
+        "Germany": "Німеччина", "France": "Франція", "Italy": "Італія", "Spain": "Іспанія", "Poland": "Польща", "Netherlands": "Нідерланди", "Sweden": "Швеція", "Norway": "Норвегія", "Japan": "Японія", "South Korea": "Південна Корея", "Brazil": "Бразилія", "Mexico": "Мексика", "South Africa": "Південна Африка",
+        "5-7 business days": "5-7 робочих днів", "2-3 business days": "2-3 робочі дні", "1 business day": "1 робочий день", "PayPal": "PayPal", "Apple Pay": "Apple Pay",
+        "Logout": "Вийти", "Total Orders": "Усього замовлень", "Wishlist Items": "Товарів у списку бажань", "Total Spent": "Усього витрачено", "Available Points": "Доступні бали", "Recent Orders": "Останні замовлення", "My Orders": "Мої замовлення", "All Orders": "Усі замовлення", "Pending": "Очікують", "Shipped": "Відправлено", "Cancelled": "Скасовано",
+        "Product Title": "Назва товару", "(0 reviews)": "(0 відгуків)", "Color:": "Колір:", "Quantity:": "Кількість:", "Shipping & Returns": "Доставка та повернення", "Write a Review": "Написати відгук", "Name:": "Ім'я:", "Email:": "Електронна пошта:", "Rating:": "Оцінка:", "Select rating": "Виберіть оцінку", "Review Title:": "Заголовок відгуку:", "Review:": "Відгук:", "Submit Review": "Надіслати відгук", "Return Policy": "Політика повернення", "Related Products": "Схожі товари",
+        "We offer free shipping on all orders over $100. Standard shipping takes 5-7 business days.": "Ми пропонуємо безкоштовну доставку для всіх замовлень понад $100. Стандартна доставка триває 5-7 робочих днів.", "We offer a 30-day return policy for all products in original condition with tags attached.": "Ми приймаємо повернення протягом 30 днів для всіх товарів у первісному стані з прикріпленими бірками.",
+        "XXL": "XXL", "5 Stars": "5 зірок", "4+ Stars": "4+ зірки", "3+ Stars": "3+ зірки", "Excellent": "Відмінно", "Good": "Добре", "Average": "Середньо", "Poor": "Погано", "Terrible": "Жахливо",
+        "Carbon Neutral": "Вуглецево нейтральні", "Conservation": "Охорона природи", "All rights reserved.": "Усі права захищено.",
+        "Phone Number *": "Номер телефону *", "Cardholder Name *": "Ім'я власника картки *", "Card Number *": "Номер картки *", "Expiry Date *": "Термін дії *", "CVV *": "CVV *",
+        "Billing address same as shipping": "Платіжна адреса збігається з адресою доставки", "Standard Shipping": "Стандартна доставка", "Express Shipping": "Експрес-доставка", "Overnight Shipping": "Нічна доставка",
+        "Back to Cart": "Назад до кошика", "Continue to Payment": "Продовжити до оплати", "Back to Shipping": "Назад до доставки", "Review Order": "Перевірити замовлення", "Card Details": "Дані картки",
+        "Date of Birth": "Дата народження", "Gender": "Стать", "Select": "Виберіть", "Male": "Чоловіча", "Female": "Жіноча", "Other": "Інша", "Manage your personal details, contact info and account preferences.": "Керуйте особистими даними, контактною інформацією та налаштуваннями облікового запису.",
+        "Save Changes": "Зберегти зміни", "Notifications": "Сповіщення", "Email notifications": "Сповіщення електронною поштою", "SMS notifications": "SMS-сповіщення", "Newsletter": "Розсилка", "Privacy": "Конфіденційність", "Make profile public": "Зробити профіль публічним", "Security": "Безпека", "Change Password": "Змінити пароль", "Enable Two-Factor Authentication": "Увімкнути двофакторну автентифікацію", "Danger Zone": "Небезпечна зона", "Delete Account": "Видалити обліковий запис",
+        "Frequently Asked Questions": "Часті запитання", "Color:": "Колір:", "Quantity:": "Кількість:", "Write a Review": "Написати відгук", "Select rating": "Виберіть оцінку", "Excellent": "Відмінно", "Good": "Добре", "Average": "Середньо", "Poor": "Погано", "Terrible": "Жахливо", "Review Title:": "Заголовок відгуку:", "Review:": "Відгук:", "Submit Review": "Надіслати відгук",
+        "Your Account": "Ваш обліковий запис", "Facebook": "Facebook", "LinkedIn": "LinkedIn", "Open menu": "Відкрити меню"
     });
 
     function translateValue(value, language) {
@@ -443,8 +490,8 @@
         userBtn.addEventListener("click", function () {
             if (userContent) {
                 userContent.innerHTML = "" +
-                    "<p style=\"margin-bottom: 16px;\">You are browsing as a guest user.</p>" +
-                    "<a class=\"btn btn-primary btn-full\" href=\"user-account.html\">Open Account</a>";
+                    "<p style=\"margin-bottom: 16px;\">" + translateValue("You are browsing as a guest user.", document.body.dataset.language || "en") + "</p>" +
+                    "<a class=\"btn btn-primary btn-full\" href=\"user-account.html\">" + translateValue("Open Account", document.body.dataset.language || "en") + "</a>";
             }
             userModal.classList.add("active");
         });
@@ -467,7 +514,7 @@
         if (newsletterForm) {
             newsletterForm.addEventListener("submit", function (event) {
                 event.preventDefault();
-                alert("Thanks for subscribing.");
+                alert(translateValue("Thanks for subscribing.", document.body.dataset.language || "en"));
                 newsletterForm.reset();
             });
         }
@@ -476,7 +523,7 @@
         if (contactForm) {
             contactForm.addEventListener("submit", function (event) {
                 event.preventDefault();
-                alert("Message sent. We will get back to you shortly.");
+                alert(translateValue("Message sent. We will get back to you shortly.", document.body.dataset.language || "en"));
                 contactForm.reset();
             });
         }

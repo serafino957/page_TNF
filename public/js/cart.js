@@ -212,7 +212,7 @@
             document.body.appendChild(box);
         }
 
-        box.textContent = message;
+        box.textContent = localizedText(message);
         box.style.opacity = "1";
         window.clearTimeout(notify._timer);
         notify._timer = window.setTimeout(function () {
@@ -246,20 +246,25 @@
 
     function buildProductCard(product) {
         var productName = localizedProductName(product.name);
+        var language = document.body.dataset.language || "en";
+        var viewLabel = window.TNF && window.TNF.translateValue ? window.TNF.translateValue("View", language) : "View";
+        var addLabel = window.TNF && window.TNF.translateValue ? window.TNF.translateValue("Add to Cart", language) : "Add to Cart";
+        var saleLabel = window.TNF && window.TNF.translateValue ? window.TNF.translateValue("Sale", language) : "Sale";
+        var wishlistLabel = window.TNF && window.TNF.translateValue ? window.TNF.translateValue("Add to Wishlist", language) : "Add to Wishlist";
         var saleMarkup = product.sale && product.originalPrice ?
             '<div class="product-price-row"><span class="product-price sale-price">' + formatCurrency(product.price) + '</span><span class="product-original-price">' + formatCurrency(product.originalPrice) + '</span></div>' :
             '<div class="product-price">' + formatCurrency(product.price) + '</div>';
 
         return "" +
-            '<article class="product-card" data-product-id="' + product.id + '" tabindex="0" role="link" aria-label="View ' + productName + '">' +
+            '<article class="product-card" data-product-id="' + product.id + '" tabindex="0" role="link" aria-label="' + viewLabel + ' ' + productName + '">' +
             '<img class="product-image" src="' + product.image + '" alt="' + productName + '">' +
-            '<button class="wishlist-card-btn" data-wishlist="' + product.id + '" type="button" aria-label="Add ' + productName + ' to wishlist"><i class="far fa-heart"></i></button>' +
+            '<button class="wishlist-card-btn" data-wishlist="' + product.id + '" type="button" aria-label="' + wishlistLabel + '"><i class="far fa-heart"></i></button>' +
             '<div class="product-info">' +
             '<h3 class="product-name">' + productName + '</h3>' +
             '<div class="product-rating">' + stars(product.rating) + '</div>' +
-            (product.sale ? '<span class="sale-badge">Sale</span>' : '') +
+            (product.sale ? '<span class="sale-badge">' + saleLabel + '</span>' : '') +
             saleMarkup +
-            '<button class="btn btn-primary" data-add-cart="' + product.id + '">Add to Cart</button>' +
+            '<button class="btn btn-primary" data-add-cart="' + product.id + '">' + addLabel + '</button>' +
             '</div>' +
             '</article>';
     }
@@ -575,9 +580,9 @@
         }
         if ($("productPrice")) $("productPrice").textContent = formatCurrency(product.price);
         if ($("productRating")) $("productRating").textContent = stars(product.rating);
-        if ($("ratingCount")) $("ratingCount").textContent = "(127 reviews)";
+        if ($("ratingCount")) $("ratingCount").textContent = localizedText("(127 reviews)");
         if ($("descriptionContent")) $("descriptionContent").textContent = localizedText(product.description);
-        if ($("stockStatus")) $("stockStatus").innerHTML = '<span style="color:#28a745;font-weight:600;">In stock</span>';
+        if ($("stockStatus")) $("stockStatus").innerHTML = '<span style="color:#28a745;font-weight:600;">' + localizedText("In stock") + '</span>';
         if ($("specificationsTable")) {
             $("specificationsTable").innerHTML = "<tr><th>" + localizedText("Feature") + "</th><th>" + localizedText("Details") + "</th></tr>" + product.features.map(function (feature, index) {
                 return "<tr><td>" + localizedText("Feature " + (index + 1)) + "</td><td>" + localizedText(feature) + "</td></tr>";
@@ -586,7 +591,7 @@
 
         var sizeSelect = $("sizeSelect");
         if (sizeSelect) {
-            sizeSelect.innerHTML = '<option value="">Select a size</option>';
+            sizeSelect.innerHTML = '<option value="">' + localizedText("Select a size") + '</option>';
             product.sizes.forEach(function (size) {
                 var option = document.createElement("option");
                 option.value = size;
@@ -612,8 +617,8 @@
                 swatch.className = "color-option" + (index === 0 ? " selected" : "");
                 swatch.style.backgroundColor = colorItem.code;
                 swatch.dataset.color = colorItem.code;
-                swatch.title = colorItem.name || "Color option";
-                swatch.setAttribute("aria-label", "Color option: " + (colorItem.name || "Color"));
+                swatch.title = localizedText(colorItem.name || "Color option");
+                swatch.setAttribute("aria-label", localizedText("Color option:") + " " + localizedText(colorItem.name || "Color"));
                 swatch.addEventListener("click", function () {
                     colorOptions.querySelectorAll(".color-option").forEach(function (opt) { opt.classList.remove("selected"); });
                     swatch.classList.add("selected");
@@ -702,11 +707,11 @@
         tableBody.innerHTML = cart.map(function (item, index) {
             return "" +
                 "<tr>" +
-                "<td><div class=\"cart-product\"><img class=\"cart-product-image\" src=\"" + item.image + "\" alt=\"" + item.name + "\"><div class=\"cart-product-info\"><h3>" + item.name + "</h3><p>Size: " + item.size + "</p></div></div></td>" +
+                "<td><div class=\"cart-product\"><img class=\"cart-product-image\" src=\"" + item.image + "\" alt=\"" + item.name + "\"><div class=\"cart-product-info\"><h3>" + localizedProductName(item.name) + "</h3><p>" + localizedText("Size:") + " " + item.size + "</p></div></div></td>" +
                 "<td>" + formatCurrency(item.price) + "</td>" +
                 "<td><input data-cart-qty=\"" + index + "\" type=\"number\" min=\"1\" value=\"" + item.quantity + "\" style=\"width:65px;\"></td>" +
                 "<td>" + formatCurrency(item.price * item.quantity) + "</td>" +
-                "<td><button class=\"btn btn-danger\" data-cart-remove=\"" + index + "\">Remove</button></td>" +
+                "<td><button class=\"btn btn-danger\" data-cart-remove=\"" + index + "\">" + localizedText("Remove") + "</button></td>" +
                 "</tr>";
         }).join("");
 
