@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Accessories category">
+  <rect width="1200" height="800" fill="#3b0764"/>
+  <circle cx="200" cy="650" r="220" fill="#f59e0b" opacity="0.25"/>
+  <circle cx="600" cy="390" r="170" fill="#fbbf24"/>
+  <circle cx="600" cy="390" r="85" fill="#78350f"/>
+  <rect x="560" y="160" width="80" height="90" rx="16" fill="#d97706"/>
+  <text x="60" y="730" font-family="Arial, sans-serif" font-size="72" fill="#fef3c7">Accessories</text>
+</svg>

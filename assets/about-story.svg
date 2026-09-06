@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="About story">
+  <rect width="1200" height="800" fill="#111827"/>
+  <path d="M0 620c220-120 420-80 600-10s380 90 600-20v210H0z" fill="#1e3a8a"/>
+  <path d="M130 360l120-220 120 220h-70l-50-95-50 95z" fill="#f59e0b"/>
+  <path d="M320 360l170-280 170 280z" fill="#f97316"/>
+  <text x="70" y="730" font-family="Arial, sans-serif" font-size="66" fill="#e5e7eb">Our Story Since 1966</text>
+</svg>
