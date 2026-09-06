@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="My Account | The North Face">
     <title>My Account | The North Face</title>
-    <link rel="stylesheet" href="css/style.css?v=2">
-    <link rel="stylesheet" href="css/responsive.css?v=2">
-    <link rel="stylesheet" href="css/animations.css?v=2">
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/responsive.css?v=3">
+    <link rel="stylesheet" href="css/animations.css?v=3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -69,6 +69,57 @@
 
     <!-- Account Container -->
     <div class="container account-container">
+        <div id="authShell" class="auth-shell" style="display: none;">
+            <div class="auth-card">
+                <div class="auth-tabs">
+                    <button type="button" class="auth-tab active" data-auth-tab="login">Login</button>
+                    <button type="button" class="auth-tab" data-auth-tab="register">Register</button>
+                </div>
+
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Your password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+                </form>
+
+                <form id="registerForm" class="auth-form" style="display: none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="registerFirstName">First Name</label>
+                            <input type="text" id="registerFirstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerLastName">Last Name</label>
+                            <input type="text" id="registerLastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPhone">Phone</label>
+                        <input type="tel" id="registerPhone" placeholder="+1 555 123 4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" minlength="6" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                </form>
+            </div>
+        </div>
+
         <div class="account-content">
             <!-- Sidebar Navigation -->
             <aside class="account-sidebar">
@@ -162,17 +213,6 @@
                     <div id="addressForm" class="address-form" style="display: none;">
                         <h2>Address Details</h2>
                         <form>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="addrFirstName">First Name *</label>
-                                    <input type="text" id="addrFirstName" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="addrLastName">Last Name *</label>
-                                    <input type="text" id="addrLastName" required>
-                                </div>
-                            </div>
-
                             <div class="form-group">
                                 <label for="addrStreet">Street Address *</label>
                                 <input type="text" id="addrStreet" required>
@@ -244,45 +284,66 @@
 
                 <!-- Profile Section -->
                 <section id="profileSection" class="account-section">
-                    <h1>Profile Information</h1>
-                    <form id="profileForm" class="profile-form">
-                        <div class="form-group">
-                            <label for="profileFirstName">First Name *</label>
-                            <input type="text" id="profileFirstName" required>
+                    <div class="profile-header">
+                        <div>
+                            <h1>Profile Information</h1>
+                            <p>Manage your personal details, contact info and account preferences.</p>
+                        </div>
+                        <div class="profile-badge" id="profileSummaryBadge">Active Member</div>
+                    </div>
+
+                    <div class="profile-card">
+                        <div class="profile-avatar-card">
+                            <div class="avatar-circle" id="profileAvatarInitials">JD</div>
+                            <div>
+                                <h2 id="profileDisplayName">John Doe</h2>
+                                <p id="profileDisplayEmail">john@example.com</p>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="profileLastName">Last Name *</label>
-                            <input type="text" id="profileLastName" required>
-                        </div>
+                        <form id="profileForm" class="profile-form">
+                            <div class="profile-field-grid">
+                                <div class="form-group">
+                                    <label for="profileFirstName">First Name *</label>
+                                    <input type="text" id="profileFirstName" required>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="profileEmail">Email *</label>
-                            <input type="email" id="profileEmail" required>
-                        </div>
+                                <div class="form-group">
+                                    <label for="profileLastName">Last Name *</label>
+                                    <input type="text" id="profileLastName" required>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="profilePhone">Phone *</label>
-                            <input type="tel" id="profilePhone" required>
-                        </div>
+                                <div class="form-group full-width">
+                                    <label for="profileEmail">Email *</label>
+                                    <input type="email" id="profileEmail" required>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="profileDOB">Date of Birth</label>
-                            <input type="date" id="profileDOB">
-                        </div>
+                                <div class="form-group">
+                                    <label for="profilePhone">Phone *</label>
+                                    <input type="tel" id="profilePhone" required>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="profileGender">Gender</label>
-                            <select id="profileGender">
-                                <option value="">Select</option>
-                                <option value="M">Male</option>
-                                <option value="F">Female</option>
-                                <option value="O">Other</option>
-                            </select>
-                        </div>
+                                <div class="form-group">
+                                    <label for="profileDOB">Date of Birth</label>
+                                    <input type="date" id="profileDOB">
+                                </div>
 
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </form>
+                                <div class="form-group full-width">
+                                    <label for="profileGender">Gender</label>
+                                    <select id="profileGender">
+                                        <option value="">Select</option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                        <option value="O">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="profile-actions">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
                 </section>
 
                 <!-- Settings Section -->
@@ -375,8 +436,8 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=2"></script>
-    <script src="js/cart.js?v=2"></script>
-    <script src="js/api.js?v=2"></script>
+    <script src="js/main.js?v=5"></script>
+    <script src="js/cart.js?v=12"></script>
+    <script src="js/api.js?v=3"></script>
 </body>
 </html>

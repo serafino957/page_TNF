@@ -334,7 +334,9 @@
                 }
                 return;
             }
-            var originalAttribute = "original" + attribute.charAt(0).toUpperCase() + attribute.slice(1);
+            var originalAttribute = "original" + attribute.split("-").map(function (part) {
+                return part.charAt(0).toUpperCase() + part.slice(1);
+            }).join("");
             if (!element.dataset[originalAttribute]) {
                 element.dataset[originalAttribute] = element.getAttribute(attribute);
             }
@@ -361,7 +363,9 @@
         });
 
         var observer = new MutationObserver(function () {
+            observer.disconnect();
             translatePage(document.body.dataset.language || "en");
+            observer.observe(document.body, { childList: true, subtree: true });
         });
         observer.observe(document.body, { childList: true, subtree: true });
     }
@@ -562,6 +566,18 @@
         });
     }
 
+    function initNavbarScroll() {
+        var navbar = document.querySelector(".navbar");
+        if (!navbar) return;
+
+        function applyScrollState() {
+            navbar.classList.toggle("is-scrolled", window.scrollY > 12);
+        }
+
+        applyScrollState();
+        window.addEventListener("scroll", applyScrollState, { passive: true });
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
         initMobileMenu();
         initSearchBar();
@@ -570,6 +586,7 @@
         initFaqAccordion();
         initFooterHighlights();
         initLanguageSwitcher();
+        initNavbarScroll();
         updateCartBadge();
     });
 

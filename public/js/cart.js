@@ -3,14 +3,14 @@
     var WISHLIST_KEY = "tnf_wishlist";
     var CHECKOUT_DRAFT_KEY = "tnf_checkout_draft";
     var PRODUCTS = [
-        { id: "jacket-apex", name: "Apex Insulated Jacket", description: "A warm insulated jacket for cold trail days, with lightweight protection against wind and light rain.", category: "jackets", price: 199.0, rating: 5, image: "assets/apex-insulated-jacket.jpg", images: ["assets/apex-insulated-jacket.jpg", "assets/apex-insulated-jacket-alt1.jpg", "assets/apex-insulated-jacket-alt2.jpg"], sizes: ["S", "M", "L", "XL"], colors: ["#1B1B1B", "#004E89"], features: ["Water-resistant shell", "Synthetic insulation", "Adjustable hood", "Three zip pockets"] },
-        { id: "shell-wind", name: "Windproof Shell", description: "A lightweight shell built to block strong wind while keeping you comfortable during fast-moving adventures.", category: "jackets", price: 149.0, rating: 4, image: "assets/windproof-shell.jpg", images: ["assets/windproof-shell.jpg", "assets/windproof-shell-alt1.jpg", "assets/windproof-shell-alt2.jpg"], sizes: ["S", "M", "L"], colors: ["#334155", "#0F172A"], features: ["Windproof construction", "Breathable fabric", "Sealed seams", "Packable design"] },
-        { id: "backpack-alpine", name: "Alpine Trail Backpack", description: "A versatile 28-liter daypack with organized storage for mountain hikes, commutes, and weekend exploration.", category: "backpacks", price: 129.0, rating: 5, image: "assets/alpine-trail-backpack.jpg", images: ["assets/alpine-trail-backpack.jpg", "assets/alpine-trail-backpack-alt1.jpg", "assets/alpine-trail-backpack-alt2.jpg"], sizes: ["One Size"], colors: ["#1B4965", "#FF6B35"], features: ["28L capacity", "Padded laptop sleeve", "Hydration compatible", "Adjustable shoulder straps"] },
-        { id: "duffel-base", name: "Basecamp Duffel", description: "A rugged, spacious duffel designed to carry everything you need for basecamp, travel, or the gym.", category: "backpacks", price: 139.0, rating: 4, image: "assets/basecamp-duffel.jpg", images: ["assets/basecamp-duffel.jpg", "assets/basecamp-duffel-alt1.jpg", "assets/basecamp-duffel-alt2.jpg"], sizes: ["One Size"], colors: ["#0369A1", "#16A34A"], features: ["Durable recycled fabric", "71L capacity", "Removable shoulder strap", "Separate shoe compartment"] },
-        { id: "boots-ridge", name: "Ridge Hiker Boots", description: "Supportive waterproof hiking boots with dependable traction for rocky trails and changing mountain weather.", category: "footwear", price: 169.0, rating: 4, images: ["assets/category-footwear.jpg", "assets/category-footwear-alt1.jpg", "assets/category-footwear-alt3.jpg"], image: "assets/category-footwear.jpg", sizes: ["8", "9", "10", "11"], colors: ["#4B5563", "#111827"], features: ["Waterproof leather upper", "Vibram traction outsole", "EVA cushioning", "Protective toe cap"] },
-        { id: "gloves-summit", name: "Summit Thermal Gloves", description: "Warm, dexterous gloves that protect your hands from the cold while keeping touchscreen control close at hand.", category: "accessories", price: 49.0, rating: 4, image: "assets/category-accessories.jpg", images: ["assets/category-accessories.jpg", "assets/category-accessories-alt1.jpg", "assets/category-accessories-alt2.jpg"], sizes: ["S", "M", "L"], colors: ["#111827", "#EF4444"], features: ["Thermal fleece lining", "Touchscreen compatible", "Grippy palm", "Elastic wrist cuff"] },
-        { id: "tent-summit", name: "Summit Trail Tent", description: "A lightweight two-person tent designed for reliable shelter on overnight hikes and weekend adventures.", category: "tents", price: 249.0, rating: 5, image: "assets/summit-trail-tent.jpg", images: ["assets/summit-trail-tent.jpg", "assets/summit-trail-tent-alt1.jpg", "assets/summit-trail-tent-alt2.jpg"], sizes: ["2 Person"], colors: ["#1B4965", "#4B5563"], features: ["Two-person capacity", "Waterproof rainfly", "Aluminum poles", "Compact carry bag"] },
-        { id: "sleeping-bag-basecamp", name: "Basecamp Sleeping Bag", description: "A warm, packable sleeping bag built for comfortable nights at camp in cool conditions.", category: "sleeping-bags", price: 129.0, rating: 4, image: "assets/basecamp-sleeping-bag.jpg", images: ["assets/basecamp-sleeping-bag.jpg", "assets/basecamp-sleeping-bag-int.jpg", "assets/basecamp-sleeping-bag-alt1.jpg"], sizes: ["Regular"], colors: ["#111827", "#1B4965"], features: ["Synthetic insulation", "Comfortable hood", "Full-length zipper", "Packable stuff sack"] }
+        { id: "jacket-apex", name: "Apex Insulated Jacket", description: "A warm insulated jacket for cold trail days, with lightweight protection against wind and light rain.", category: "jackets", price: 199.0, originalPrice: 249.0, rating: 5, sale: true, image: "assets/apex-insulated-jacket.jpg", images: ["assets/apex-insulated-jacket.jpg", "assets/apex-insulated-jacket-alt1.jpg", "assets/apex-insulated-jacket-alt2.jpg"], sizes: ["S", "M", "L", "XL"], colors: [{ code: "#111111", name: "Black" }, { code: "#D9D0BF", name: "Sand" }], features: ["Water-resistant shell", "Synthetic insulation", "Adjustable hood", "Three zip pockets"] },
+        { id: "shell-wind", name: "Windproof Shell", description: "A lightweight shell built to block strong wind while keeping you comfortable during fast-moving adventures.", category: "jackets", price: 149.0, rating: 4, image: "assets/windproof-shell.jpg", images: ["assets/windproof-shell.jpg", "assets/windproof-shell-alt1.jpg", "assets/windproof-shell-alt2.jpg"], sizes: ["S", "M", "L"], colors: [{ code: "#D7D0BF", name: "Sand" }, { code: "#111111", name: "Black" }], features: ["Windproof construction", "Breathable fabric", "Sealed seams", "Packable design"] },
+        { id: "backpack-alpine", name: "Alpine Trail Backpack", description: "A versatile 28-liter daypack with organized storage for mountain hikes, commutes, and weekend exploration.", category: "backpacks", price: 129.0, originalPrice: 159.0, rating: 5, sale: true, image: "assets/alpine-trail-backpack.jpg", images: ["assets/alpine-trail-backpack.jpg", "assets/alpine-trail-backpack-alt1.jpg", "assets/alpine-trail-backpack-alt2.jpg"], sizes: ["One Size"], colors: [{ code: "#F1C74C", name: "Golden Yellow" }, { code: "#111111", name: "Black" }], features: ["28L capacity", "Padded laptop sleeve", "Hydration compatible", "Adjustable shoulder straps"] },
+        { id: "duffel-base", name: "Basecamp Duffel", description: "A rugged, spacious duffel designed to carry everything you need for basecamp, travel, or the gym.", category: "backpacks", price: 139.0, rating: 4, image: "assets/basecamp-duffel.jpg", images: ["assets/basecamp-duffel.jpg", "assets/basecamp-duffel-alt1.jpg", "assets/basecamp-duffel-alt2.jpg"], sizes: ["One Size"], colors: [{ code: "#F5F4F1", name: "Off White" }, { code: "#C1272D", name: "Red" }], features: ["Durable recycled fabric", "71L capacity", "Removable shoulder strap", "Separate shoe compartment"] },
+        { id: "boots-ridge", name: "Ridge Hiker Boots", description: "Supportive waterproof hiking boots with dependable traction for rocky trails and changing mountain weather.", category: "footwear", price: 169.0, originalPrice: 219.0, rating: 4, sale: true, images: ["assets/category-footwear.jpg", "assets/category-footwear-alt1.jpg", "assets/category-footwear-alt3.jpg"], image: "assets/category-footwear.jpg", sizes: ["8", "9", "10", "11"], colors: [{ code: "#111111", name: "Black" }, { code: "#7B7B7B", name: "Graphite" }], features: ["Waterproof leather upper", "Vibram traction outsole", "EVA cushioning", "Protective toe cap"] },
+        { id: "gloves-summit", name: "Summit Thermal Gloves", description: "Warm, dexterous gloves that protect your hands from the cold while keeping touchscreen control close at hand.", category: "accessories", price: 49.0, rating: 4, image: "assets/category-accessories.jpg", images: ["assets/category-accessories.jpg", "assets/category-accessories-alt1.jpg", "assets/category-accessories-alt2.jpg"], sizes: ["S", "M", "L"], colors: [{ code: "#111111", name: "Black" }, { code: "#8B6A4E", name: "Taupe" }], features: ["Thermal fleece lining", "Touchscreen compatible", "Grippy palm", "Elastic wrist cuff"] },
+        { id: "tent-summit", name: "Summit Trail Tent", description: "A lightweight two-person tent designed for reliable shelter on overnight hikes and weekend adventures.", category: "tents", price: 249.0, rating: 5, image: "assets/summit-trail-tent.jpg", images: ["assets/summit-trail-tent.jpg", "assets/summit-trail-tent-alt1.jpg", "assets/summit-trail-tent-alt2.jpg"], sizes: ["2 Person"], colors: [{ code: "#1A2B3D", name: "Deep Navy" }, { code: "#A6B1B7", name: "Stone Grey" }], features: ["Two-person capacity", "Waterproof rainfly", "Aluminum poles", "Compact carry bag"] },
+        { id: "sleeping-bag-basecamp", name: "Basecamp Sleeping Bag", description: "A warm, packable sleeping bag built for comfortable nights at camp in cool conditions.", category: "sleeping-bags", price: 129.0, originalPrice: 169.0, rating: 4, sale: true, image: "assets/basecamp-sleeping-bag.jpg", images: ["assets/basecamp-sleeping-bag.jpg", "assets/basecamp-sleeping-bag-int.jpg", "assets/basecamp-sleeping-bag-alt1.jpg"], sizes: ["Regular"], colors: [{ code: "#1B2A3B", name: "Midnight Blue" }, { code: "#7A8C9A", name: "Mist Grey" }], features: ["Synthetic insulation", "Comfortable hood", "Full-length zipper", "Packable stuff sack"] }
     ];
     var productsListState = {
         page: 1,
@@ -42,20 +42,135 @@
     }
 
     function readWishlist() {
-        if (window.TNF_API) return window.TNF_API.readJson(WISHLIST_KEY, []);
+        var wishlist = null;
         try {
-            return JSON.parse(localStorage.getItem(WISHLIST_KEY) || "[]");
+            wishlist = JSON.parse(localStorage.getItem(WISHLIST_KEY) || "null");
+        } catch (error) {
+            wishlist = null;
+        }
+        if (!Array.isArray(wishlist)) {
+            try {
+                wishlist = JSON.parse(sessionStorage.getItem(WISHLIST_KEY) || "[]");
+            } catch (error) {
+                wishlist = [];
+            }
+        }
+        if (!Array.isArray(wishlist) || wishlist.length === 0) {
+            try {
+                var cookieValue = document.cookie.split("; ").find(function (entry) {
+                    return entry.indexOf(WISHLIST_KEY + "=") === 0;
+                });
+                if (cookieValue) wishlist = JSON.parse(decodeURIComponent(cookieValue.split("=").slice(1).join("=")));
+            } catch (error) {
+                wishlist = Array.isArray(wishlist) ? wishlist : [];
+            }
+        }
+
+        if (!Array.isArray(wishlist)) return [];
+        return wishlist.map(function (item) {
+            if (typeof item === "string") return item;
+            if (!item) return null;
+            return item.id || item.productId || (item.product && item.product.id);
+        }).filter(Boolean);
+    }
+
+    function writeWishlist(wishlist) {
+        var serialized = JSON.stringify(wishlist);
+        try {
+            localStorage.setItem(WISHLIST_KEY, serialized);
+        } catch (error) {
+            try {
+                sessionStorage.setItem(WISHLIST_KEY, serialized);
+            } catch (storageError) {
+                notify("Wishlist storage is unavailable in this browser.");
+                return;
+            }
+        }
+        try {
+            document.cookie = WISHLIST_KEY + "=" + encodeURIComponent(serialized) + "; path=/; max-age=31536000; SameSite=Lax";
+        } catch (error) { }
+        window.dispatchEvent(new CustomEvent("tnf:wishlist-updated"));
+    }
+
+    function readWishlistFromUrl() {
+        var params = new URLSearchParams(window.location.search);
+        return (params.get("items") || "").split(",").filter(Boolean);
+    }
+
+    function bindWishlistNavigation() {
+        document.querySelectorAll('a[href$="wishlist.html"]').forEach(function (link) {
+            if (link.dataset.wishlistNavigationBound === "1") return;
+            link.dataset.wishlistNavigationBound = "1";
+            link.addEventListener("click", function () {
+                var items = readWishlist();
+                if (items.length) {
+                    link.href = "wishlist.html?items=" + encodeURIComponent(items.join(","));
+                }
+            });
+        });
+    }
+
+    function readAccounts() {
+        try {
+            return JSON.parse(localStorage.getItem("tnf_accounts") || "[]");
         } catch (error) {
             return [];
         }
     }
 
-    function writeWishlist(wishlist) {
-        if (window.TNF_API) {
-            window.TNF_API.writeJson(WISHLIST_KEY, wishlist);
-        } else {
-            localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
+    function writeAccounts(accounts) {
+        localStorage.setItem("tnf_accounts", JSON.stringify(accounts));
+    }
+
+    function getCurrentUser() {
+        try {
+            return JSON.parse(localStorage.getItem("tnf_current_user") || "null");
+        } catch (error) {
+            return null;
         }
+    }
+
+    function setCurrentUser(user) {
+        localStorage.setItem("tnf_current_user", JSON.stringify(user));
+    }
+
+    function clearCurrentUser() {
+        localStorage.removeItem("tnf_current_user");
+    }
+
+    function getUserAccountByEmail(email) {
+        var normalized = String(email || "").trim().toLowerCase();
+        return readAccounts().find(function (account) {
+            return String(account.email || "").trim().toLowerCase() === normalized;
+        }) || null;
+    }
+
+    function saveCurrentUserProfile(updates) {
+        var currentUser = getCurrentUser();
+        if (!currentUser) return null;
+
+        var accounts = readAccounts();
+        var index = accounts.findIndex(function (account) {
+            return account.id === currentUser.id;
+        });
+
+        if (index === -1) return null;
+
+        var nextUser = Object.assign({}, accounts[index], updates, {
+            id: currentUser.id,
+            email: String((updates.email || accounts[index].email || "")).trim().toLowerCase(),
+            firstName: String((updates.firstName || accounts[index].firstName || "")).trim(),
+            lastName: String((updates.lastName || accounts[index].lastName || "")).trim(),
+            phone: String((updates.phone || accounts[index].phone || "")).trim(),
+            dob: updates.dob || accounts[index].dob || "",
+            gender: updates.gender || accounts[index].gender || "",
+            settings: Object.assign({}, accounts[index].settings || {}, updates.settings || {})
+        });
+
+        accounts[index] = nextUser;
+        writeAccounts(accounts);
+        setCurrentUser(nextUser);
+        return nextUser;
     }
 
     function formatCurrency(value) {
@@ -131,13 +246,19 @@
 
     function buildProductCard(product) {
         var productName = localizedProductName(product.name);
+        var saleMarkup = product.sale && product.originalPrice ?
+            '<div class="product-price-row"><span class="product-price sale-price">' + formatCurrency(product.price) + '</span><span class="product-original-price">' + formatCurrency(product.originalPrice) + '</span></div>' :
+            '<div class="product-price">' + formatCurrency(product.price) + '</div>';
+
         return "" +
             '<article class="product-card" data-product-id="' + product.id + '" tabindex="0" role="link" aria-label="View ' + productName + '">' +
             '<img class="product-image" src="' + product.image + '" alt="' + productName + '">' +
+            '<button class="wishlist-card-btn" data-wishlist="' + product.id + '" type="button" aria-label="Add ' + productName + ' to wishlist"><i class="far fa-heart"></i></button>' +
             '<div class="product-info">' +
             '<h3 class="product-name">' + productName + '</h3>' +
             '<div class="product-rating">' + stars(product.rating) + '</div>' +
-            '<div class="product-price">' + formatCurrency(product.price) + '</div>' +
+            (product.sale ? '<span class="sale-badge">Sale</span>' : '') +
+            saleMarkup +
             '<button class="btn btn-primary" data-add-cart="' + product.id + '">Add to Cart</button>' +
             '</div>' +
             '</article>';
@@ -150,7 +271,7 @@
             }
 
             card.addEventListener("click", function (event) {
-                if (event.target.closest("[data-add-cart]")) return;
+                if (event.target.closest("[data-add-cart], [data-wishlist]")) return;
                 openProduct();
             });
             card.addEventListener("keydown", function (event) {
@@ -172,6 +293,39 @@
                 notify("Added to cart: " + product.name);
             });
         });
+        document.querySelectorAll("[data-wishlist]").forEach(function (btn) {
+            if (btn.dataset.bound) return;
+            btn.dataset.bound = "1";
+            var productId = btn.getAttribute("data-wishlist");
+            var product = PRODUCTS.find(function (item) { return item.id === productId; });
+            if (!product) return;
+
+            function updateButton() {
+                var saved = readWishlist().indexOf(productId) !== -1;
+                btn.innerHTML = saved ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
+                btn.classList.toggle("is-saved", saved);
+                btn.setAttribute("aria-label", saved ? "Remove " + localizedProductName(product.name) + " from wishlist" : "Add " + localizedProductName(product.name) + " to wishlist");
+            }
+
+            updateButton();
+            btn.addEventListener("click", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                var wishlist = readWishlist();
+                var index = wishlist.indexOf(productId);
+                if (index === -1) {
+                    wishlist.push(productId);
+                    notify("Added to wishlist.");
+                } else {
+                    wishlist.splice(index, 1);
+                    notify("Removed from wishlist.");
+                }
+                writeWishlist(wishlist);
+                updateButton();
+                if ($("wishlistPageGrid")) renderWishlistPage();
+                if ($("wishlistGrid")) renderAccountWishlist();
+            });
+        });
         bindProductCards();
     }
 
@@ -190,6 +344,7 @@
         var params = new URLSearchParams(window.location.search);
         var category = params.get("category") || "";
         var search = (params.get("search") || "").toLowerCase();
+        var saleOnly = params.get("sale") === "true" || params.get("sale") === "1";
         var sortSelect = $("sortSelect");
         var categoryFilters = document.querySelectorAll(".category-filter");
         var sizeFilters = document.querySelectorAll(".size-filter");
@@ -247,7 +402,8 @@
                 return product.sizes.indexOf(size) !== -1;
             });
             var ratingOk = !selectedRating || product.rating >= selectedRating;
-            return categoryFromUrlOk && categoryFromFiltersOk && searchOk && sizeOk && ratingOk;
+            var saleOk = !saleOnly || Boolean(product.sale);
+            return categoryFromUrlOk && categoryFromFiltersOk && searchOk && sizeOk && ratingOk && saleOk;
         });
 
         if (sortSelect) {
@@ -441,20 +597,27 @@
         }
 
         var colorOptions = $("colorOptions");
-        var selectedColor = product.colors[0];
+        var normalizedColors = (product.colors || []).map(function (color) {
+            if (typeof color === "string") {
+                return { code: color, name: "Color" };
+            }
+            return color;
+        });
+        var selectedColor = normalizedColors[0] ? normalizedColors[0].code : "";
         if (colorOptions) {
             colorOptions.innerHTML = "";
-            product.colors.forEach(function (color, index) {
+            normalizedColors.forEach(function (colorItem, index) {
                 var swatch = document.createElement("button");
                 swatch.type = "button";
                 swatch.className = "color-option" + (index === 0 ? " selected" : "");
-                swatch.style.backgroundColor = color;
-                swatch.dataset.color = color;
-                swatch.setAttribute("aria-label", "Color option");
+                swatch.style.backgroundColor = colorItem.code;
+                swatch.dataset.color = colorItem.code;
+                swatch.title = colorItem.name || "Color option";
+                swatch.setAttribute("aria-label", "Color option: " + (colorItem.name || "Color"));
                 swatch.addEventListener("click", function () {
                     colorOptions.querySelectorAll(".color-option").forEach(function (opt) { opt.classList.remove("selected"); });
                     swatch.classList.add("selected");
-                    selectedColor = color;
+                    selectedColor = colorItem.code;
                 });
                 colorOptions.appendChild(swatch);
             });
@@ -854,10 +1017,115 @@
     }
 
     function renderAccountPage() {
+        var authShell = $("authShell");
+        var accountContent = document.querySelector(".account-content");
         var user = $("accountUser");
-        if (!user) return;
+        var currentUser = getCurrentUser();
 
-        user.innerHTML = '<h3 style="margin-bottom:8px;">Explorer Member</h3><p style="color:#999;">member@thenorthface.local</p>';
+        if (!currentUser) {
+            if (authShell) authShell.style.display = "block";
+            if (accountContent) accountContent.style.display = "none";
+
+            var loginForm = $("loginForm");
+            var registerForm = $("registerForm");
+            var authTabs = document.querySelectorAll(".auth-tab");
+
+            if (authTabs.length) {
+                authTabs.forEach(function (tab) {
+                    if (tab.dataset.authBound === "1") return;
+                    tab.dataset.authBound = "1";
+                    tab.addEventListener("click", function () {
+                        var tabName = tab.getAttribute("data-auth-tab");
+                        authTabs.forEach(function (button) { button.classList.toggle("active", button === tab); });
+                        if (loginForm) loginForm.style.display = tabName === "login" ? "block" : "none";
+                        if (registerForm) registerForm.style.display = tabName === "register" ? "block" : "none";
+                    });
+                });
+            }
+
+            if (loginForm && !loginForm.dataset.authBound) {
+                loginForm.dataset.authBound = "1";
+                loginForm.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    var email = (document.getElementById("loginEmail") || {}).value || "";
+                    var password = (document.getElementById("loginPassword") || {}).value || "";
+                    var foundUser = readAccounts().find(function (account) {
+                        return String(account.email || "").trim().toLowerCase() === String(email).trim().toLowerCase() && String(account.password || "") === String(password);
+                    });
+
+                    if (!foundUser) {
+                        notify("Invalid email or password.");
+                        return;
+                    }
+
+                    setCurrentUser(foundUser);
+                    notify("Welcome back, " + (foundUser.firstName || "Explorer") + "!");
+                    renderAccountPage();
+                });
+            }
+
+            if (registerForm && !registerForm.dataset.authBound) {
+                registerForm.dataset.authBound = "1";
+                registerForm.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    var email = (document.getElementById("registerEmail") || {}).value || "";
+                    var password = (document.getElementById("registerPassword") || {}).value || "";
+                    var firstName = (document.getElementById("registerFirstName") || {}).value || "";
+                    var lastName = (document.getElementById("registerLastName") || {}).value || "";
+                    var phone = (document.getElementById("registerPhone") || {}).value || "";
+
+                    if (!firstName || !lastName || !email || !password) {
+                        notify("Please fill in all required fields.");
+                        return;
+                    }
+                    if (password.length < 6) {
+                        notify("Password must be at least 6 characters long.");
+                        return;
+                    }
+
+                    var accounts = readAccounts();
+                    if (accounts.some(function (account) {
+                        return String(account.email || "").trim().toLowerCase() === String(email).trim().toLowerCase();
+                    })) {
+                        notify("An account with this email already exists.");
+                        return;
+                    }
+
+                    var newUser = {
+                        id: "user_" + Date.now(),
+                        firstName: firstName.trim(),
+                        lastName: lastName.trim(),
+                        email: String(email).trim().toLowerCase(),
+                        phone: phone.trim(),
+                        password: String(password),
+                        dob: "",
+                        gender: "",
+                        settings: {
+                            emailNotif: true,
+                            smsNotif: false,
+                            newsNotif: true,
+                            publicProfile: false
+                        },
+                        addresses: []
+                    };
+
+                    accounts.push(newUser);
+                    writeAccounts(accounts);
+                    setCurrentUser(newUser);
+                    notify("Account created successfully.");
+                    renderAccountPage();
+                });
+            }
+
+            return;
+        }
+
+        if (authShell) authShell.style.display = "none";
+        if (accountContent) accountContent.style.display = "block";
+
+        if (user) {
+            user.innerHTML = '<h3 style="margin-bottom:8px;">' + (currentUser.firstName || "Explorer") + ' ' + (currentUser.lastName || "Member") + '</h3><p style="color:#999;">' + (currentUser.email || "member@thenorthface.local") + '</p>';
+        }
 
         var sections = {
             dashboard: $("dashboardSection"),
@@ -869,6 +1137,8 @@
         };
 
         document.querySelectorAll(".account-nav-link[data-section]").forEach(function (link) {
+            if (link.dataset.navBound === "1") return;
+            link.dataset.navBound = "1";
             link.addEventListener("click", function (event) {
                 event.preventDefault();
                 var key = link.getAttribute("data-section");
@@ -880,25 +1150,54 @@
             });
         });
 
-        if ($("totalOrders")) $("totalOrders").textContent = "12";
+        if ($("totalOrders")) $("totalOrders").textContent = String((currentUser.orders || []).length || 0);
         var wishlist = readWishlist();
         if ($("wishlistCount")) $("wishlistCount").textContent = String(wishlist.length);
-        if ($("totalSpent")) $("totalSpent").textContent = "$2,640.00";
-        if ($("rewardPoints")) $("rewardPoints").textContent = "840";
+        if ($("totalSpent")) $("totalSpent").textContent = "$0.00";
+        if ($("rewardPoints")) $("rewardPoints").textContent = String((currentUser.rewardPoints || 0));
 
         if ($("recentOrdersList")) {
-            $("recentOrdersList").innerHTML = "<p style=\"margin-bottom:8px;\">#TNF-1024 - Delivered</p><p style=\"margin-bottom:8px;\">#TNF-1023 - Processing</p>";
+            var orderHistory = Array.isArray(currentUser.orders) && currentUser.orders.length ? currentUser.orders : [];
+            $("recentOrdersList").innerHTML = orderHistory.length ? orderHistory.slice(0, 2).map(function (entry) {
+                return '<p style="margin-bottom:8px;">' + entry.number + ' - ' + entry.status + '</p>';
+            }).join("") : '<p style="margin-bottom:8px;">No orders yet.</p>';
         }
         if ($("ordersList")) $("ordersList").innerHTML = "<p>Use the filter to browse your order history.</p>";
-        if ($("addressesList")) $("addressesList").innerHTML = "<p>123 Mountain View Rd, Denver, CO 80202, US</p>";
-
-        if ($("wishlistGrid")) {
-            var wishlistProducts = wishlist.map(function (id) {
-                return PRODUCTS.find(function (product) { return product.id === id; });
-            }).filter(Boolean);
-            $("wishlistGrid").innerHTML = wishlistProducts.length ? wishlistProducts.map(buildProductCard).join("") : '<p class="empty-wishlist">Your wishlist is empty.</p>';
-            bindAddToCartButtons();
+        if ($("addressesList")) {
+            var addresses = Array.isArray(currentUser.addresses) && currentUser.addresses.length ? currentUser.addresses : [{ street: "123 Mountain View Rd", city: "Denver", state: "CO", zip: "80202", country: "US" }];
+            $("addressesList").innerHTML = addresses.map(function (address) {
+                return '<p>' + [address.street, address.city, address.state, address.zip, address.country].filter(Boolean).join(", ") + '</p>';
+            }).join("");
         }
+
+        var accountSettings = Object.assign({
+            emailNotif: true,
+            smsNotif: false,
+            newsNotif: true,
+            publicProfile: false
+        }, currentUser.settings || {});
+        ["emailNotif", "smsNotif", "newsNotif", "publicProfile"].forEach(function (settingId) {
+            var setting = $(settingId);
+            if (!setting) return;
+
+            setting.checked = Boolean(accountSettings[settingId]);
+            if (setting.dataset.settingsBound === "1") return;
+            setting.dataset.settingsBound = "1";
+            setting.addEventListener("change", function () {
+                var settings = {};
+                ["emailNotif", "smsNotif", "newsNotif", "publicProfile"].forEach(function (id) {
+                    var checkbox = $(id);
+                    if (checkbox) settings[id] = checkbox.checked;
+                });
+                saveCurrentUserProfile({ settings: settings });
+                if ($("profileSummaryBadge")) {
+                    $("profileSummaryBadge").textContent = settings.publicProfile ? "Public Profile" : "Active Member";
+                }
+                notify("Settings saved.");
+            });
+        });
+
+        renderAccountWishlist();
 
         if ($("addAddressBtn") && $("addressForm")) {
             $("addAddressBtn").addEventListener("click", function () { $("addressForm").style.display = "block"; });
@@ -906,26 +1205,87 @@
         if ($("cancelAddressBtn") && $("addressForm")) {
             $("cancelAddressBtn").addEventListener("click", function () { $("addressForm").style.display = "none"; });
         }
+
         if ($("profileForm")) {
-            $("profileForm").addEventListener("submit", function (event) {
-                event.preventDefault();
-                notify("Profile updated.");
-            });
+            var profileForm = $("profileForm");
+            if (!profileForm.dataset.profileBound) {
+                profileForm.dataset.profileBound = "1";
+                profileForm.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    var updated = {
+                        firstName: $("profileFirstName").value,
+                        lastName: $("profileLastName").value,
+                        email: $("profileEmail").value,
+                        phone: $("profilePhone").value,
+                        dob: $("profileDOB").value,
+                        gender: $("profileGender").value
+                    };
+
+                    var normalizedEmail = String(updated.email || "").trim().toLowerCase();
+                    var duplicate = readAccounts().find(function (account) {
+                        return account.id !== currentUser.id && String(account.email || "").trim().toLowerCase() === normalizedEmail;
+                    });
+
+                    if (duplicate) {
+                        notify("This email is already in use by another account.");
+                        return;
+                    }
+
+                    saveCurrentUserProfile(updated);
+                    notify("Profile updated.");
+                    renderAccountPage();
+                });
+            }
+
+            var fullName = [currentUser.firstName, currentUser.lastName].filter(Boolean).join(" ") || "New Member";
+            var initials = (currentUser.firstName || "N").charAt(0).toUpperCase() + (currentUser.lastName || "M").charAt(0).toUpperCase();
+
+            $("profileFirstName").value = currentUser.firstName || "";
+            $("profileLastName").value = currentUser.lastName || "";
+            $("profileEmail").value = currentUser.email || "";
+            $("profilePhone").value = currentUser.phone || "";
+            $("profileDOB").value = currentUser.dob || "";
+            $("profileGender").value = currentUser.gender || "";
+
+            if ($("profileDisplayName")) $("profileDisplayName").textContent = fullName;
+            if ($("profileDisplayEmail")) $("profileDisplayEmail").textContent = currentUser.email || "member@thenorthface.local";
+            if ($("profileAvatarInitials")) $("profileAvatarInitials").textContent = initials;
+            if ($("profileSummaryBadge")) $("profileSummaryBadge").textContent = currentUser.settings && currentUser.settings.publicProfile ? "Public Profile" : "Active Member";
         }
+
         if ($("logoutLink")) {
             $("logoutLink").addEventListener("click", function (event) {
                 event.preventDefault();
+                clearCurrentUser();
                 notify("Logged out.");
                 window.location.href = "index.html";
             });
         }
     }
 
+    function renderAccountWishlist() {
+        var grid = $("wishlistGrid");
+        if (!grid) return;
+
+        var wishlistProducts = readWishlist().map(function (id) {
+            return PRODUCTS.find(function (product) { return product.id === id; });
+        }).filter(Boolean);
+        grid.innerHTML = wishlistProducts.length ? wishlistProducts.map(buildProductCard).join("") : '<p class="empty-wishlist">Your wishlist is empty.</p>';
+        bindAddToCartButtons();
+    }
+
     function renderWishlistPage() {
         var grid = $("wishlistPageGrid");
         if (!grid) return;
 
-        var wishlistProducts = readWishlist().map(function (id) {
+        var wishlist = readWishlist();
+        var urlItems = readWishlistFromUrl();
+        var mergedWishlist = wishlist.concat(urlItems.filter(function (id) {
+            return wishlist.indexOf(id) === -1;
+        }));
+        if (mergedWishlist.length !== wishlist.length) writeWishlist(mergedWishlist);
+
+        var wishlistProducts = mergedWishlist.map(function (id) {
             return PRODUCTS.find(function (product) { return product.id === id; });
         }).filter(Boolean);
 
@@ -934,7 +1294,7 @@
         bindAddToCartButtons();
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
+    function initCartPage() {
         renderFeaturedProducts();
         renderProductsPage();
         renderProductDetail();
@@ -942,5 +1302,23 @@
         renderCheckoutPage();
         renderAccountPage();
         renderWishlistPage();
-    });
+        bindWishlistNavigation();
+
+        window.addEventListener("tnf:wishlist-updated", function () {
+            renderAccountWishlist();
+            renderWishlistPage();
+        });
+        window.addEventListener("storage", function (event) {
+            if (event.key === WISHLIST_KEY) {
+                renderAccountWishlist();
+                renderWishlistPage();
+            }
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initCartPage);
+    } else {
+        initCartPage();
+    }
 })();

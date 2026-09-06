@@ -37,12 +37,17 @@
 html {
     scroll-behavior: smooth;
     background-color: #102d27;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body {
     font-family: var(--font-primary);
     color: var(--text-color);
     line-height: 1.6;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
     background-color: #102d27;
     background-image: linear-gradient(rgba(5, 10, 18, 0.65), rgba(5, 10, 18, 0.65)), url('../assets/greener-graffiti-display.jpg');
     background-position: center;
@@ -116,8 +121,8 @@ img {
 }
 
 .sidebar {
-    position: sticky;
-    top: 92px;
+    position: static;
+    top: auto;
 }
 
 .filter-section {
@@ -349,6 +354,11 @@ img {
     top: 0;
     z-index: 100;
     border-bottom: 1px solid rgba(20, 36, 43, 0.08);
+    transition: all 0.25s ease;
+}
+
+.navbar.is-scrolled {
+    box-shadow: 0 6px 18px rgba(18, 26, 43, 0.14);
 }
 
 .navbar-container {
@@ -359,6 +369,11 @@ img {
     justify-content: space-between;
     align-items: center;
     height: 70px;
+    transition: height 0.25s ease;
+}
+
+.navbar.is-scrolled .navbar-container {
+    height: 56px;
 }
 
 .navbar-logo {
@@ -368,6 +383,11 @@ img {
     display: flex;
     align-items: center;
     gap: 10px;
+    transition: font-size 0.25s ease;
+}
+
+.navbar.is-scrolled .navbar-logo {
+    font-size: 20px;
 }
 
 .navbar-logo a {
@@ -395,8 +415,14 @@ img {
 .nav-link {
     color: var(--text-color);
     font-weight: 500;
-    transition: var(--transition);
+    transition: font-size 0.25s ease, color 0.25s ease, opacity 0.25s ease;
     position: relative;
+}
+
+.navbar.is-scrolled .nav-link,
+.navbar.is-scrolled .nav-icon-btn,
+.navbar.is-scrolled .language-switcher {
+    font-size: 14px;
 }
 
 .nav-link::after {
@@ -516,6 +542,12 @@ img {
     left: 0;
     right: 0;
     z-index: 99;
+    transition: top 0.25s ease;
+}
+
+.navbar.is-scrolled + .search-bar,
+.navbar.is-scrolled ~ .search-bar {
+    top: 56px;
 }
 
 .search-bar.active {
@@ -664,6 +696,7 @@ img {
 }
 
 .product-card {
+    position: relative;
     background-color: var(--white);
     border-radius: 3px;
     overflow: hidden;
@@ -671,6 +704,26 @@ img {
     transition: var(--transition);
     cursor: pointer;
     border: 1px solid rgba(20, 36, 43, 0.08);
+}
+
+.wishlist-card-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--white);
+    font-size: 17px;
+}
+
+.wishlist-card-btn:hover,
+.wishlist-card-btn.is-saved {
+    background: var(--primary-color);
+    color: var(--white);
 }
 
 .product-card:hover {
@@ -1296,7 +1349,9 @@ img {
 
 .specs-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
 }
 
 .specs-table tr {
@@ -1309,9 +1364,14 @@ img {
     text-align: left;
 }
 
+.specs-table thead,
 .specs-table th {
+    position: static;
+    top: auto;
+    z-index: 1;
     background-color: var(--light-gray);
     font-weight: 600;
+    box-shadow: inset 0 -1px 0 var(--border-color);
 }
 
 /* ========== REVIEWS ========== */
@@ -1399,19 +1459,28 @@ img {
 
 .cart-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     background-color: var(--white);
 }
 
 .cart-table thead {
     background-color: var(--light-gray);
     border-bottom: 2px solid var(--border-color);
+    position: static;
+    top: auto;
+    z-index: 1;
 }
 
 .cart-table th {
+    position: static;
+    top: auto;
+    z-index: 1;
     padding: 15px;
     text-align: left;
     font-weight: 600;
+    background-color: var(--light-gray);
+    box-shadow: inset 0 -1px 0 var(--border-color);
 }
 
 .cart-table td {
@@ -1446,8 +1515,10 @@ img {
     padding: 25px;
     border-radius: 8px;
     height: fit-content;
-    position: sticky;
-    top: 80px;
+    position: static;
+    top: auto;
+    z-index: 1;
+    align-self: start;
 }
 
 .cart-summary h2 {
@@ -1653,7 +1724,8 @@ img {
 
 .review-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
 .review-table th,
@@ -1663,9 +1735,14 @@ img {
     border-bottom: 1px solid var(--border-color);
 }
 
+.review-table thead,
 .review-table th {
+    position: static;
+    top: auto;
+    z-index: 1;
     background-color: var(--light-gray);
     font-weight: 600;
+    box-shadow: inset 0 -1px 0 var(--border-color);
 }
 
 .checkout-summary {
@@ -1673,8 +1750,10 @@ img {
     padding: 25px;
     border-radius: 8px;
     height: fit-content;
-    position: sticky;
-    top: 80px;
+    position: static;
+    top: auto;
+    z-index: 1;
+    align-self: start;
 }
 
 .summary-line {
@@ -1745,7 +1824,9 @@ img {
     border-radius: 8px;
     height: fit-content;
     position: sticky;
-    top: 80px;
+    top: 92px;
+    z-index: 2;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .account-user {
@@ -1963,13 +2044,119 @@ img {
     color: var(--secondary-color);
 }
 
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.profile-header h1 {
+    margin-bottom: 6px;
+}
+
+.profile-header p {
+    margin: 0;
+    color: var(--gray);
+}
+
+.profile-badge {
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: rgba(22, 86, 54, 0.08);
+    border: 1px solid rgba(22, 86, 54, 0.14);
+    color: var(--forest);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.profile-card {
+    background: linear-gradient(180deg, #ffffff 0%, #f7f7f4 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.profile-avatar-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 28px 28px 18px;
+    background: linear-gradient(135deg, rgba(25, 80, 55, 0.08), rgba(245, 128, 54, 0.08));
+    border-bottom: 1px solid var(--border-color);
+}
+
+.avatar-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), #e18d44);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.profile-avatar-card h2 {
+    margin: 0 0 4px;
+    color: var(--forest);
+    font-size: 24px;
+}
+
+.profile-avatar-card p {
+    margin: 0;
+    color: var(--gray);
+}
+
 .profile-form,
 .contact-form {
     background-color: var(--white);
     padding: 25px;
     border-radius: 8px;
     border: 1px solid var(--border-color);
-    max-width: 600px;
+    max-width: 100%;
+}
+
+.profile-field-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.profile-field-grid .full-width {
+    grid-column: 1 / -1;
+}
+
+.profile-form .form-group {
+    margin-bottom: 0;
+}
+
+.profile-form input,
+.profile-form select {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid rgba(17, 17, 17, 0.14);
+    background: #fafaf9;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-form input:focus,
+.profile-form select:focus {
+    border-color: rgba(22, 86, 54, 0.5);
+    box-shadow: 0 0 0 4px rgba(22, 86, 54, 0.06);
+    outline: none;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
 }
 
 .settings-group {
@@ -3227,4 +3414,50 @@ select {
 input::placeholder,
 textarea::placeholder {
     color: var(--gray);
+}
+
+.profile-card {
+    background: var(--surface);
+    border-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.profile-avatar-card {
+    background: var(--light-gray);
+    border-bottom-color: var(--secondary-color);
+}
+
+.profile-avatar-card h2 {
+    color: var(--forest);
+}
+
+.profile-avatar-card p {
+    color: var(--gray);
+}
+
+.profile-form {
+    background-color: var(--surface);
+    border-color: var(--secondary-color);
+}
+
+.profile-form .form-group label {
+    color: var(--white);
+}
+
+.profile-form input,
+.profile-form select {
+    background-color: var(--surface);
+    color: var(--white);
+    border-color: var(--secondary-color);
+}
+
+.profile-form input::placeholder,
+.profile-form select::placeholder {
+    color: var(--gray);
+}
+
+.profile-form input:focus,
+.profile-form select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.16);
 }

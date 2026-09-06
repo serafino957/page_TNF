@@ -2,6 +2,10 @@
 
 /* ========== TABLETS (768px and below) ========== */
 @media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+
     .products-container {
         grid-template-columns: 1fr;
         gap: 24px;
